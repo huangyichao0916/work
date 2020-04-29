@@ -1,0 +1,21 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1588082970832'); /* IE9 */
+  src: url('iconfont.eot?t=1588082970832#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAPgAAsAAAAAB+AAAAORAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqDVIMJATYCJAMICwYABCAFhG0HRhvFBsgOpdjAwADggQFABF/76b67S1iRS0FnoioUOmChy8pUlcdHyCpRTY7AiP/De9pLmaZwujkjfSmU+qDsAPmL/J1P3Dv9LfH5zrtc5pg0qQswDqSA9sYoobRAAvOAG8YuaIm3CaDNRyRktbiyEVAs5qIA4kyn6QM0Y8RqqAwoBKdiZwHkEtjQNJ1xCxfB5+PfQqAACTuDWbN9UDQMcr+WWDlMeojW6REgms4Otg9kYAIUEPuVzk3MKDnBhKlJFn+wrUoEfC0ZGvKEm/3hgQBRB7O8CzCCwmsSOeJL5UwABQwGUwD3g04lr5UJRy9diyAr9gSfwLC1T33WPAmPV27BZsQuWwX0I7dF20K3XcLSPO8l9kHb9D6fv3WrSrVUpVwctPkyXzjzacAgfvSs5+AKfKlqJzLYiIHybjHQixSbMMDnlTMXK+nATYWCJUfw4GDmzUdP1cqnyODSpfyZ25XLH3uvfuSlIISHjwPcLlMswvHGnjz7z3Cj3TaZGYpFCmzJDrx95U5V1v7SvV+UgJ7U7M2/sIFbpfJR1njl3jV6ZNknJaO5ouItKadz/4sl8yK/yQJ8AhcVj4qvgz3b4grz7Yc5qWHu0TVNWTw5JYgW8UrKr51e6x9rbcbzNhIaMbPycpqX9CdcYJSIcM9xROo89PJa+6srDVU34EHUUCHLDhRw6dmXxblsVFz9E3k2rh8u4nPyG7cR72D1NXa+31Y27+fslK/vl06Jq10XGBO4nqG/D4sAFZ3/Z/qXfQfO7+bn94gz/6F8FgBe7rR7BP6KLtDNDZo35grwg0QdO4omMU2pKKLKbLIemDde14YBFWBvz5uh7iFI7AHlIoiEyxsZKpBUaJGo4UtEHSoHbRFK9nfI2TAhhQdgbDIAQmIvGETOgkniNolFew023DdwSIIJTHPIT+QLDh1WYCP7HOQwon8koRugzGrb4sDCynpS4zT22dKSgN5M2uy6CBEXHZvPlJBm0jbFGrtLE+9wqAm1jTIRxeA+0mikCIuN0pMDjmitw2FJj4lRVz0peoAyAaaADamPA2kYQr+RCDoDKGZqr7cDVnh/PZKGk1EfW0NblbsZycZONzwhTrTYDqQSpblT2608YueiEc/BQY2gZkMxIRQDO8loJSkES/U0PdIAh2jaAXGLdDGom7qrMnp5tent9kGbqUtheZjgdeUjRml1o5xUv66PiiY4zbHxCXGJqQAAAAA=') format('woff2'),
+  url('iconfont.woff?t=1588082970832') format('woff'),
+  url('iconfont.ttf?t=1588082970832') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1588082970832#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-iconfontzhizuobiaozhun023148:before {
+  content: "\e696";
+}
+
