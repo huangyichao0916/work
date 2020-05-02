@@ -23,6 +23,8 @@ let foodX, foodY;//产生食物的点
 
 let score = 0;//分数
 
+let isChangingDirection = false;
+
 var gameCanvas = document.getElementById('gameCanvas');
 var ctx = gameCanvas.getContext('2d');
 
@@ -73,6 +75,7 @@ function clearCanvas() {
 
 function main() {
     setTimeout(function () {
+        isChangingDirection = false;
         clearCanvas();//清除画布
         drawFood();//绘制食物
         advanceSnake();//控制蛇的动作
@@ -98,6 +101,10 @@ function changeDirection(event) {
     const RIGHT_KEY = 68;
     const UP_KEY = 87;
     const DOWN_KEY = 83;
+    if (isChangingDirection) {
+        return;
+    }
+    isChangingDirection = true;
     const keyPressed = event.keyCode;
     const goingUp = dy === -10;//这里要注意，Y轴的方向是向下的，所以当dy === -10的时候在屏幕上蛇的表现应该是向上走
     const goingDown = dy === 10;
