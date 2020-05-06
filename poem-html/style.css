@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.main1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5d6146;
+  color: #fff;
+  height: 45px;
+}
+.main1 .cont {
+  width: 1000px;
+  display: flex;
+}
+.main1 .cont .left {
+  width: 150px;
+}
+.main1 .cont .right {
+  flex: 1;
+}
+.main1 .cont .right .son1 {
+  text-decoration: none;
+  color: #fff;
+  float: left;
+  line-height: 45px;
+}
+.main1 .cont .right .son2 {
+  float: right;
+}
+.main1 .cont .right .son2 #search {
+  height: 26px;
+  margin-top: 7px;
+}
+.main2 {
+  display: flex;
+  justify-content: center;
+  background-color: #e1e0c8;
+}
+.main2 .left {
+  width: 670px;
+  margin-right: 20px;
+}
+.main2 .left .sons {
+  background-color: #f0efe2;
+  margin-top: 20px;
+  border: 1px solid #c8c7bc;
+}
+.main2 .left .sons .cont {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.main2 .left .sons .cont .title {
+  height: 30px;
+}
+.main2 .left .sons .cont .title .name {
+  float: left;
+  font-size: 20px;
+  color: #00f;
+  line-height: 30px;
+}
+.main2 .left .sons .cont .title .yizhu {
+  float: right;
+  font-size: 14px;
+  color: #808080;
+  line-height: 30px;
+}
+.main2 .left .sons .cont .source {
+  text-align: justify;
+  font-size: 10px;
+  color: #808080;
+  line-height: 200%;
+  margin-top: 10px;
+}
+.main2 .left .sons .cont .content {
+  text-align: justify;
+}
+.main2 .left .sons .tool {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-bottom: 1px solid #808080;
+}
+.main2 .left .sons .tool .shoucang {
+  color: #008000;
+}
+.main2 .left .sons .tool .wanshan {
+  color: #008000;
+}
+.main2 .left .sons .tag {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #808080;
+  font-size: 10px;
+  text-align: justify;
+}
+.main2 .right {
+  background-color: #f0efe2;
+  width: 300px;
+  margin-top: 20px;
+  border: 1px solid #c8c7bc;
+}
+.main2 .right .title {
+  margin: 20px;
+}
+.main2 .right a {
+  text-decoration: none;
+  display: inline-block;
+  width: 70px;
+  margin-top: 15px;
+  margin-left: 20px;
+  text-align: center;
+  border: 1px solid #dad9d1;
+}
