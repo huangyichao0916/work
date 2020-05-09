@@ -1,0 +1,80 @@
+*
+    padding 0
+    margin 0
+html,body
+    width 100%
+    height 100%
+body
+    display flex
+    align-items: center
+    justify-content: center
+    perspective: 400px
+
+
+
+.wrapper
+    border: 1px solid pink
+    width 600px
+    height 600px
+    // perspective: 400px
+    // transform: rotateX(70deg)
+    // transform: rotateY(30deg)
+    .container
+        width 600px
+        height 600px
+        transform-style: preserve-3d
+        transform: rotateX(30deg) rotateY(-30deg)
+        .left,.right,.up,.down,.before,.after
+            display flex
+            justify-content: center
+            align-items: center
+            font-size: 50px
+            color: white
+        .left
+            width 200px
+            height 200px
+            background-color: blue
+            position absolute
+            left 100px
+            top 200px
+            transform: rotateY(90deg)
+        .up
+            width 200px
+            height 200px
+            background-color: black
+            position absolute
+            left 200px
+            top 100px
+            transform: rotateX(90deg)
+        .right
+            width 200px
+            height 200px
+            background-color: grey
+            position absolute
+            right 100px
+            top 200px
+            transform: rotateY(90deg)
+        .down
+            width 200px
+            height 200px
+            background-color: green
+            position absolute
+            bottom 100px
+            left 200px
+            transform: rotateX(90deg)
+        .before
+            width 200px
+            height 200px
+            background-color: pink
+            position absolute
+            left 200px
+            top 200px
+            transform: translate3d(0,0,-100px)
+        .after
+            width 200px
+            height 200px
+            background-color: transparent
+            position absolute
+            left 200px
+            top 200px
+            transform: translate3d(0,0,100px)
