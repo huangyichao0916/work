@@ -1,0 +1,72 @@
+$borderColor = #f1f1f1
+$normalColor = grey
+$pickColor = #007fff
+$specialColor = #b71ed7
+*
+    margin 0
+    padding 0
+body,html
+    width 100%
+    height 100%
+body
+    display flex
+    justify-content: center
+    align-items: center
+    background-color: grey
+.wrapper
+    width 450px
+    height 700px
+    background-color #fff
+    .Header
+        border-bottom 1px solid $borderColor
+        height 60px
+        .btn
+            display: inline-block
+            height 60px
+            line-height 60px
+            margin: 0 15px
+            cursor pointer
+        .btn.actived
+            color: $pickColor
+    .Ad
+        border: 1px solid $borderColor
+        color: $normalColor
+        height 80px
+        padding 20px
+        .AdInfo
+            font-size: 10px
+            .div1,.div2
+                display: inline-block
+            .div1
+                padding: 2px 5px
+                border: 1px solid $normalColor
+                border-radius: 2px
+                margin-right 10px
+        .AdTitle
+            font-size: 20px
+            color: black
+            margin-top 5px
+        .AdContent
+            font-size: 10px
+            margin-top 10px
+    .ArticleList
+        .Article
+            color: $normalColor
+            padding 20px
+            border-bottom: 1px solid $borderColor
+            .ArticleInfo
+                font-size: 10px
+                a
+                    text-decoration: none
+                    color: $normalColor
+                a#zhuanlan
+                    color: $specialColor
+                    display: inline-block
+                    margin-right 15px
+            .ArticleTitle
+                font-size: 18px
+
+
+            
+        
+    
