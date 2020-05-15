@@ -94,8 +94,11 @@ class JuejinApp extends Component{
         let {articles,fnc,classNames} = this.state;
         return (
             <div className="wrapper">
+                {/* 头部 */}
                 <Header change={this.change.bind(this)} classNames={classNames}/>
+                {/* 广告 */}
                 <Ad />
+                {/* 文章列表 */}
                 <ArticleList articles={articles} fnc={fnc}/>
             </div>
         )
@@ -109,6 +112,7 @@ class JuejinApp extends Component{
     fncRank(item){
         return item.type === 'rank';
     }
+    
     change(index){
         let arr = [this.fncHot,this.fncNewest,this.fncRank];
         let myClassNames = ['btn','btn','btn'];
