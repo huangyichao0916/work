@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage-Etag-http</title>
+</head>
+<body>
+    <ul>黄毅超</ul>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+        const ul = document.querySelector('ul');
+
+        xhr.open('get','/users',true);
+
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log('从服务器获取');
+                // let result = JSON.parse(xhr.response);//object
+                // let Etag = xhr.getResponseHeader('etag');//string
+                // ul.innerHTML = result.map(item => 
+                //     `<li>
+                //         ${item.location} - ${item.name}
+                //     <li/>`
+                // ).join('');
+                // localStorage.setItem('Etag',Etag);
+                // localStorage.setItem('result',JSON.stringify(result));
+            }
+            else if (xhr.readyState == 4 && xhr.status == 304) {
+                console.log('从本地读取');
+                // let result = JSON.parse(localStorage.getItem('result'));
+                // ul.innerHTML = result.map(item => 
+                //     `<li>
+                //         ${item.location} - ${item.name}
+                //     <li/>`
+                // ).join('');
+            }
+        }
+
+        xhr.send();
+    </script>
+</body>
+</html>
