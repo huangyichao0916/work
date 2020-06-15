@@ -10,6 +10,10 @@ export default function(state = defaultState,action){
             }else{
                 return state;
             }
+        case 'delete_list':
+            let newState = [...state];
+            newState.splice(action.value,1);
+            return newState;
         default:
             return state;
     }
