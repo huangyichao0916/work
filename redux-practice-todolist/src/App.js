@@ -6,7 +6,7 @@ import Header from './components/header/Header';
 import Content from './components/content/Content';
 
 store.subscribe(function(){
-  console.log(store.getState().lists.lists);
+  console.log(store.getState().lists);
 })
 
 class App extends React.Component {

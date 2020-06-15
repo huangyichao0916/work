@@ -31,7 +31,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        lists:state.lists.lists,
+        lists:state.lists,
     }
 }
 
