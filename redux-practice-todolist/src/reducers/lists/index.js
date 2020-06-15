@@ -6,6 +6,9 @@ export default function(state = defaultState,action){
             let newState = [...state];
             newState.push(action.value);
             return newState;
+        // case 'add_list':
+        //     state.push(action.value);
+        //     return state;
         default:
             return state;
     }
