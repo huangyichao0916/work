@@ -12,6 +12,9 @@ export default function(state = defaultState,action){
             }
         case 'delete_list':
             return state.delete(action.value);
+        case 'test':
+            let newState = state.push(1);
+            return newState.pop();
         default:
             return state;
     }
