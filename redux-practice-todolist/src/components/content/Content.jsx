@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {is} from 'immutable';
 
 class Content extends Component {
+    shouldComponentUpdate(nextState,nextProps){
+        let isChanged = !is(this.props,nextProps);
+        return isChanged;
+    }
+    componentDidUpdate(){
+        console.log('update');
+    }
     render() { 
+        // console.log('-----------',this.props.lists);
         let lists = this.props.lists.map((item,index) => (
                 <li key={index} onClick={() => {
                     this.props.onClick(index);
@@ -21,7 +30,7 @@ class Content extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        lists:state.lists,
+        lists:state.get('lists'),
     }
 }
 

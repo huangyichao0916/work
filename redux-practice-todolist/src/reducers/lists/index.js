@@ -1,19 +1,17 @@
-const defaultState = ['hyc'];
+import {fromJS} from 'immutable'
+
+const defaultState = fromJS(['hyc']);
 
 export default function(state = defaultState,action){
     switch(action.type){
         case 'add_list':
             if (action.value !== '') {
-                let newState = [...state];
-                newState.push(action.value);
-                return newState; 
+                return state.push(action.value);
             }else{
                 return state;
             }
         case 'delete_list':
-            let newState = [...state];
-            newState.splice(action.value,1);
-            return newState;
+            return state.delete(action.value);
         default:
             return state;
     }

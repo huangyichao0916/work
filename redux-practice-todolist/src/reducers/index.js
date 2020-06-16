@@ -1,5 +1,6 @@
 import ListReducer from './lists';
-import {createStore,combineReducers} from 'redux';
+import {combineReducers} from 'redux-immutable';
+import {createStore} from 'redux';
 
 const rootReducer = combineReducers({
     lists:ListReducer,
