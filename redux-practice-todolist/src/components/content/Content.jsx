@@ -11,13 +11,20 @@ class Content extends Component {
         console.log('update');
     }
     render() { 
-        // console.log('-----------',this.props.lists);
+        console.log('-----------',this.props.lists);
         let lists = this.props.lists.map((item,index) => (
                 <li key={index} onClick={() => {
                     this.props.onClick(index);
                 }}> {item} </li>
             )
         )
+        // let arr = [1,5,6,5];
+        // let lists = arr.map((item,index) => (
+        //     <li key={index}>
+        //         {item}
+        //     </li>
+        // ))
+        console.log(lists);//发现react可以直接渲染出List数据类型的数据
         return ( 
             <div>
                 <ul>
