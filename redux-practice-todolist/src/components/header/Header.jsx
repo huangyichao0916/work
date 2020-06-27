@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import lists from '../../reducers/lists';
 
 class Header extends Component {
     state = { 

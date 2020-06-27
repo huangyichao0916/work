@@ -8,10 +8,10 @@ class Content extends Component {
         return isChanged;
     }
     componentDidUpdate(){
-        console.log('update');
+        // console.log('update');
     }
     render() { 
-        console.log('-----------',this.props.lists);
+        // console.log('-----------',this.props.lists);
         let lists = this.props.lists.map((item,index) => (
                 <li key={index} onClick={() => {
                     this.props.onClick(index);
@@ -24,7 +24,7 @@ class Content extends Component {
         //         {item}
         //     </li>
         // ))
-        console.log(lists);//发现react可以直接渲染出List数据类型的数据
+        // console.log(lists);//发现react可以直接渲染出List数据类型的数据
         return ( 
             <div>
                 <ul>
