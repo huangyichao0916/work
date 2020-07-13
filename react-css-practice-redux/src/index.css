@@ -1,0 +1,127 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body,html{
+  width: 100vw;
+  height: 100vh;
+}
+#root{
+  width: 100%;
+}
+.Header{
+  width: 100%;
+  background-color: grey;
+}
+.Header .top{
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+}
+.Header .top .title{
+  flex-grow: 1;
+}
+.Header .top .title .txt{
+  margin-left: 50%;
+  transform: translateX(-1rem);
+}
+.Header .top .button{
+  flex-grow: 0;
+}
+.Header .search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Header .search input{
+  width: 80%;
+  height: 0.7rem;
+  border-radius: 1000px;
+}
+.Body{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+  font-size: 0;
+} 
+.Body .item{
+  font-size: 0.3rem;
+  background-color: green;
+  margin-top: 0.3rem;
+  width: 40%;
+  height: 3rem;
+  margin-left: 6%;
+}
+.Body .item .img{
+  width: 90%;
+  height: 70%;
+  margin-left: 50%;
+  margin-top: 5px;
+  transform: translateX(-50%);
+}
+.Body .item .describe{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Body .item .img img{
+  width: 100%;
+  height: 100%;
+}
+.add{
+  border: 1px solid grey;
+  font-size: 0.3rem;
+  margin-top: 0.3rem;
+  width: calc(40% - 2px);
+  height: calc(3rem - 2px);
+  margin-left: 6%;
+}
+.add img{
+  width: 100%;
+  height: 100%;
+}
+.Footer{
+  width: 100%;
+  background-color: indianred;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Footer div{
+  text-align: center;
+  flex: 1;
+}
+#add{
+  border: 1px solid black;
+  width: 6rem;
+  height: 10rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+#add .img{
+  width: 80%;
+  height: 70%;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+#add .img img{
+  width: 100%;
+  height: 100%;
+}
+#add .input{
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#add .getBack{
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(100%,100%);
+}

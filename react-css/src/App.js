@@ -2,13 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './hyc.styl';
+import Item from './components/item/Item';
 
 function App() {
   return (
     <div className="App">
-      <div className="hyc">
-        123
-      </div>
+      123
+      <Item />
     </div>
   );
 }
