@@ -2,53 +2,57 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route  } from 'react-router-dom';
 import Main from './components/Main';
 import Add from './components/Add';
+import {createStore} from 'redux'
+import {Provider} from 'react-redux';
+
+const defaultState = [
+  {
+      imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
+      name:'111',
+  },
+  {
+      imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
+      name:'111',
+  },
+  {
+      imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
+      name:'111',
+  },
+  {
+      imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
+      name:'111',
+  },
+  {
+      imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
+      name:'111',
+  },
+]
+const reducer = (state=defaultState,action) => {
+  switch (action.type) {
+    case 'add':
+      let obj = {
+        imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
+        name:action.payload,
+      }
+      return [obj,...state];
+      break;
+  
+    default:
+      return state;
+      break;
+  }
+}
+const store = createStore(reducer);
 
 class App extends Component {
-  state={
-    items:[
-      {
-          imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
-          name:'111',
-      },
-      {
-          imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
-          name:'111',
-      },
-      {
-          imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
-          name:'111',
-      },
-      {
-          imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
-          name:'111',
-      },
-      {
-          imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
-          name:'111',
-      },
-  ]
-  }
-  handleSubmit = (value) => {
-    console.log('handleSubmit');
-    const obj = {
-      imgUrl:'http://pic22.nipic.com/20120801/9058465_094128507140_2.jpg',
-      name:value,
-    }
-    const {items} = this.state;
-    items.unshift(obj);
-    this.setState({
-      items,
-    })
-  }
   render(){
-    const {items} = this.state;
     return (
-      <BrowserRouter>
-        <Route path="/" exact render={() => <Main items={items}/>}/>
-        <Route path="/add" render={() => <Add handleSubmit={this.handleSubmit}/>}/>
-        {/* <Route path="/" exact component={Main}/>
-        <Route path="/add" component={Add}/> */}
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Route path="/" exact component={Main}/>
+          <Route path="/add" component={Add}/>
+        </BrowserRouter>
+      </Provider>
     );
   }
 }

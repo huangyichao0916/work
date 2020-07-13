@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux';
 
 class Add extends Component {
     state = {
         content:'',
-    }
-    componentDidMount(){
-        console.log('Add组件的props',this.props);
     }
     handleChange = (event) => {
         this.setState({
             content:event.target.value,
         })
     }
-    handleClick = () => {
-        let {content} = this.state;
-        console.log(content);
-        this.props.handleSubmit(content);
-    }
     render() {
+        let {content} = this.state;
         return (
             <div id="add">
                 <Link className="getBack" to="/">返回</Link>
@@ -27,11 +21,30 @@ class Add extends Component {
                 </div>
                 <div className="input">
                     <input type="text" onChange={this.handleChange}/>
-                    <button onClick={this.handleClick}>提交</button>
+                    <button onClick={() => {
+                        this.props.handleClick(content)
+                        this.props.history.goBack();
+                    }}>提交</button>
                 </div>
             </div>
         );
     }
 }
 
-export default Add;
+const mapStateToProps = state => {
+    return{
+        
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return{
+        handleClick:(payload) => {
+            dispatch({
+                type : 'add',
+                payload,
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Add);
