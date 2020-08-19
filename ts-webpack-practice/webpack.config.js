@@ -10,6 +10,9 @@ const config = {
     entry: './src/index.js',
     resolve:{
         extensions:['.tsx','.ts','.js','.jsx'],
+        alias:{
+            '@': path.resolve(__dirname,'src'),   //路径别名，方便引入模块
+        }
     },
     devServer:{
         contentBase: './public',

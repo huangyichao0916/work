@@ -1,6 +1,6 @@
-## 练习ts以及webpack
+## 手敲webpack以及ts、stylus等的配置
 
-### .babelrc区域
+### .babelrc    配置babel
 1. yarn add babel-loader @babel/core @babel/preset-env @babel/preset-react -D
  - 在.babelrc下面加入:
  ```json
@@ -32,7 +32,7 @@
  }
  ```
 
-### webpack.config.js
+### webpack.config.js   配置webpack
 1. yarn add react react-dom                 安装react
 2. yarn add webpack webpack-cli -D          安装webpack
 3. 配置webpack-dev-server
