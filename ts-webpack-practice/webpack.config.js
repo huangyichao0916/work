@@ -11,12 +11,13 @@ const config = {
     resolve:{
         extensions:['.tsx','.ts','.js','.jsx'],
         alias:{
-            '@': path.resolve(__dirname,'src'),   //路径别名，方便引入模块
+            '@': path.resolve(__dirname,'./src'),   //路径别名，方便引入模块
         }
     },
     devServer:{
         contentBase: './public',
         hot: true,
+        historyApiFallback: true,
     },
     module:{
         rules:[
