@@ -11,4 +11,4 @@
         historyApiFallback: true,//这里不设置，配置路由就会显示404
     },
   ```
-4. 
+4. 在使用mockjs的时候没有引入就请求
