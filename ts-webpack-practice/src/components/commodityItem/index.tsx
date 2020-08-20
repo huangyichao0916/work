@@ -4,6 +4,8 @@ import './commodityItem.styl';
 interface Props{
     name: string;
     price: number;
+    isPurchased: boolean;
+    index: number;
 }
 
 const CommodityItem = (props:Props) => {
