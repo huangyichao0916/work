@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{FC} from 'react';
 import './commodityItem.styl';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
     index: number;
 }
 
-const CommodityItem = (props: Props) => {
+const CommodityItem:FC<Props> = (props) => {
     const { name, price, isPurchased, index } = props;
     return (
         <div className="commodityItem">

@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{FC} from 'react';
 import './record.styl';
 
-const Record = (props:any) => {
+const Record:FC = (props) => {
     return (
         <div>
             record

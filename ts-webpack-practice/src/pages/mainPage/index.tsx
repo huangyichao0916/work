@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,FC } from 'react';
 import './mainPage.styl';
 import CommodityItem from '../../components/commodityItem';
 import axios from 'axios';
@@ -13,7 +13,7 @@ interface Props {
     loadData: (data: DataState) => void;
 }
 
-const MainPage = (props: Props) => {
+const MainPage:FC<Props> = (props) => {
     const { loadData, commodityData, } = props;
     useEffect(() => {
         if (commodityData.length) {
@@ -23,7 +23,7 @@ const MainPage = (props: Props) => {
             .then(res => res.data.commodity)
             .then(res => loadData(res))
     }, [])
-    let commodityItems: Array<JSX.Element> = commodityData.map((item, index) => {
+    const commodityItems:Array<JSX.Element> = commodityData.map((item, index) => {
         const { name, price, isPurchased } = item;
         return (
             <CommodityItem
@@ -40,7 +40,6 @@ const MainPage = (props: Props) => {
             <div className="header">
                 所有商品
             </div>
-            {/* <CommodityItem price={10} name={'ivory'}/> */}
             {commodityItems}
         </div>
     )

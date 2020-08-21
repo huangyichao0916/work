@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{FC} from 'react';
 import './footer.styl';
 import {NavLink} from 'react-router-dom'
 
-const Footer = (props:any) => {
+const Footer:FC = (props) => {
     return(
         <div className="footer">
             <NavLink to="/mainPage" activeClassName="selected">首页</NavLink>
