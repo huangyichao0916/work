@@ -1,6 +1,6 @@
 export type BalanceState = number;
 
-interface Data{
+interface Data {
     name: string;
     price: number;
     isPurchased: boolean;

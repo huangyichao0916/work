@@ -15,8 +15,10 @@ interface Props {
 
 const MainPage = (props: Props) => {
     const { loadData, commodityData, } = props;
-    // console.log(123);
     useEffect(() => {
+        if (commodityData.length) {
+            return;
+        }
         axios.get('/mock/data')
             .then(res => res.data.commodity)
             .then(res => loadData(res))

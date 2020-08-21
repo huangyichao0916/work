@@ -1,16 +1,16 @@
 import React from 'react';
 import './commodityItem.styl';
 
-interface Props{
+interface Props {
     name: string;
     price: number;
     isPurchased: boolean;
     index: number;
 }
 
-const CommodityItem = (props:Props) => {
-    const {name,price} = props;
-    return(
+const CommodityItem = (props: Props) => {
+    const { name, price, isPurchased, index } = props;
+    return (
         <div className="commodityItem">
             <div className="name">
                 {name}
@@ -18,9 +18,18 @@ const CommodityItem = (props:Props) => {
             <div className="price">
                 ¥{price}
             </div>
-            <div className="button">
-                <button>购买</button>
-            </div>
+            {
+                !isPurchased &&
+                <div className="button">
+                    <button>购买</button>
+                </div>
+            }
+            {
+                isPurchased &&
+                <div className="isPurchased">
+                    <button>已购买</button>
+                </div>
+            }
         </div>
     )
 }

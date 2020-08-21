@@ -1,36 +1,36 @@
 import * as constants from '../constant';
-import {DataState,BalanceState} from '../types'
+import { DataState, BalanceState } from '../types'
 
-export interface LoadData{
+export interface LoadData {
     type: constants.LOADDATA;
-    [otherProps:string]: any;
+    [otherProps: string]: any;
 }
-export function loadData_AC(data:DataState):LoadData{
-    return{
+export function loadData_AC(data: DataState): LoadData {
+    return {
         type: constants.LOADDATA,
         payload: data,
     }
 }
 
-export interface Purchase{
+export interface Purchase {
     type: constants.PURCHASE;
-    [otherProps:string]: any;
+    [otherProps: string]: any;
 }
-export function purchase_AC(data:BalanceState):Purchase{
+export function purchase_AC(data: BalanceState): Purchase {
     return {
         type: constants.PURCHASE,
         payload: data,
     }
 }
 
-export interface SetIsPurchased{
+export interface SetIsPurchased {
     type: constants.SET_IS_PURCHASE,
-    [otherProps:string]: any;
+    [otherProps: string]: any;
 }
-export function setIsPurchased_AC(data:number):SetIsPurchased{
-    return{
-        type:constants.SET_IS_PURCHASE,
-        payload:data,
+export function setIsPurchased_AC(data: number): SetIsPurchased {
+    return {
+        type: constants.SET_IS_PURCHASE,
+        payload: data,
     }
 }
 
