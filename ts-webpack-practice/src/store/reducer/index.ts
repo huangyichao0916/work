@@ -9,7 +9,8 @@ export const balanceReducer: Reducer<BalanceState, ActionTypes> = (state = defau
     switch (type) {
         case constants.PURCHASE:
             return state - payload;
-
+        case constants.RECHARGE:
+            return state + payload;
         default:
             return state;
     }
@@ -37,10 +38,13 @@ export const recordReducer:Reducer<RecordState,ActionTypes> = (state = recordSta
     const {payload,type} = action;
     switch (type) {
         case constants.CREATE_PUCHASE_RECORD:
-            let newState = [...state];
+            let newState:RecordState = [...state];
             newState.push(payload);
             return newState;
-    
+        case constants.CREATE_RECHARGE_RECORD:
+            let newState2:RecordState = [...state];
+            newState2.push(payload);
+            return newState2;
         default:
             return state;
     }

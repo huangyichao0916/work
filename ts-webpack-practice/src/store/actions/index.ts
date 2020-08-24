@@ -46,17 +46,39 @@ export function setPurchaseRecord_AC(data: { price: number; name: string; date: 
     }
 }
 
+export interface Recharge{
+    type: constants.RECHARGE;
+    [otherProps: string]: any;
+}
+export function recharge_AC(account:number):Recharge{
+    return{
+        type: constants.RECHARGE,
+        payload: account
+    }
+}
+
+export interface CreateRechargeRecord {
+    type: constants.CREATE_RECHARGE_RECORD;
+    [otherProps: string]: any;
+}
+export function setRechargeRecord_AC(data:{account:number,date:string}):CreateRechargeRecord{
+    return{
+        type: constants.CREATE_RECHARGE_RECORD,
+        payload: data,
+    }
+}
+
 
 // 普通的action的联合类型
-export type ActionTypes = LoadData | Purchase | SetIsPurchased | CreatePurchaseRecord;
+export type ActionTypes = LoadData | Purchase | SetIsPurchased | CreatePurchaseRecord | Recharge | CreateRechargeRecord;
 
 
-export type Buy = ThunkAction<any, RootState, any, ActionTypes>;
-export function buy_AC(price: number, index: number, name: string): Buy {
+export type ThunkActionType = ThunkAction<any, RootState, any, ActionTypes>;
+export function buy_AC(price: number, index: number, name: string): ThunkActionType {
     const d: Date = new Date();
     const [year, month, day] = [d.getFullYear(), d.getMonth(), d.getDay()];
     const reg: RegExp = /(\d+)\:(\d+)\:(\d+)/;
-    const a: string = Date();
+    const a:string = Date();
     const res = a.match(reg);
 
     const str: string = `${year}年${month}月${day}日${res[1]}时${res[2]}分${res[3]}秒`;
@@ -69,5 +91,18 @@ export function buy_AC(price: number, index: number, name: string): Buy {
             name,
             date: str,
         }))
+    }
+}
+
+export function handleRechage_AC(account:number):ThunkActionType{
+    const a:string = Date();
+    const reg: RegExp = /(\d+)\:(\d+)\:(\d+)/;
+    const res = a.match(reg);
+
+    const str: string = `${res[1]}时${res[2]}分${res[3]}秒`;
+
+    return function(dispatch){
+        dispatch(recharge_AC(account));
+        dispatch(setRechargeRecord_AC({account,date:str}));
     }
 }

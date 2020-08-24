@@ -8,9 +8,10 @@ interface Data {
 export type DataState = Array<Data>;
 
 interface RecordItem{
-    price: number;
-    name: string;
+    price?: number;
+    name?: string;
     date: string;
+    account?: number;
 }
 export type RecordState  = Array<RecordItem>;
 

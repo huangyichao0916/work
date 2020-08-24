@@ -5,8 +5,8 @@ import axios from 'axios';
 import '../../mock';
 import { connect } from 'react-redux';
 import { RootState, DataState } from '../../store/types';
-import { ActionTypes, loadData_AC, buy_AC, } from '../../store/actions';
-import {ThunkDispatch, ThunkAction} from 'redux-thunk'
+import { ActionTypes, loadData_AC, buy_AC, SetIsPurchased} from '../../store/actions';
+import {ThunkDispatch} from 'redux-thunk'
 
 interface Props {
     commodityData: DataState;
