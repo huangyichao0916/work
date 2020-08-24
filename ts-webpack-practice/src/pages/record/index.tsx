@@ -1,12 +1,46 @@
-import React,{FC} from 'react';
+import React, { FC } from 'react';
 import './record.styl';
+import { connect } from 'react-redux';
+import { RootState, RecordState } from '../../store/types';
 
-const Record:FC = (props) => {
+interface Props {
+    data: RecordState;
+}
+
+const Record: FC<Props> = (props) => {
+    const { data } = props;
+    const items: Array<JSX.Element> = data.map((item, index) => {
+        const { price, name, date } = item;
+        return (
+            <div key={index} className="record">
+                <div>
+                    商品价格：{price}
+                </div>
+                <div>
+                    商品名称：{name}
+                </div>
+                <div>
+                    购买日期：{date}
+                </div>
+            </div>
+        )
+    })
     return (
         <div>
-            record
+            {items}
         </div>
     )
 }
 
-export default Record;
+const mapStateToProps = (state: RootState) => {
+    return {
+        data: state.record,
+    }
+}
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Record);

@@ -32,7 +32,7 @@ const config = {
             },
             {
                 test: /\.styl(us)?$/,
-                loader:'style-loader!css-loader!stylus-loader'
+                use:['style-loader','css-loader','stylus-loader'],
             },
             {
                 test: /\.tsx?$/,

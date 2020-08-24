@@ -6,10 +6,11 @@ interface Props {
     price: number;
     isPurchased: boolean;
     index: number;
+    handleBuy:(price:number,index:number,name:string) => void;
 }
 
 const CommodityItem:FC<Props> = (props) => {
-    const { name, price, isPurchased, index } = props;
+    const { name, price, isPurchased, index, handleBuy } = props;
     return (
         <div className="commodityItem">
             <div className="name">
@@ -21,7 +22,7 @@ const CommodityItem:FC<Props> = (props) => {
             {
                 !isPurchased &&
                 <div className="button">
-                    <button>购买</button>
+                    <button onClick={() => handleBuy(price, index, name)}>购买</button>
                 </div>
             }
             {

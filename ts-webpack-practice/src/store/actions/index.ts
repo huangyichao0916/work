@@ -1,6 +1,6 @@
 import * as constants from '../constant';
-import { DataState, BalanceState, RootState} from '../types'
-import {ThunkAction} from 'redux-thunk'
+import { DataState, BalanceState, RootState } from '../types'
+import { ThunkAction } from 'redux-thunk'
 
 export interface LoadData {
     type: constants.LOADDATA;
@@ -35,30 +35,39 @@ export function setIsPurchased_AC(data: number): SetIsPurchased {
     }
 }
 
-export interface CreatePurchaseRecord{
+export interface CreatePurchaseRecord {
     type: constants.CREATE_PUCHASE_RECORD;
     [otherProps: string]: any;
 }
-export function setPurchaseRecord_AC(data:object):CreatePurchaseRecord{
-    return{
+export function setPurchaseRecord_AC(data: { price: number; name: string; date: string }): CreatePurchaseRecord {
+    return {
         type: constants.CREATE_PUCHASE_RECORD,
         payload: data,
     }
 }
 
 
-// action的联合类型
-export type ActionTypes = LoadData | Purchase | SetIsPurchased;
+// 普通的action的联合类型
+export type ActionTypes = LoadData | Purchase | SetIsPurchased | CreatePurchaseRecord;
 
 
-export type Buy = ThunkAction<any,RootState,any,ActionTypes>;
-export function buy_AC(price:number,index:number):Buy{
-    const d:Date = new Date();
-    const [year,month,day] = [d.getFullYear(),d.getMonth(),d.getDay()];
-    const str:string = `${year}年${month}月${day}日`;
+export type Buy = ThunkAction<any, RootState, any, ActionTypes>;
+export function buy_AC(price: number, index: number, name: string): Buy {
+    const d: Date = new Date();
+    const [year, month, day] = [d.getFullYear(), d.getMonth(), d.getDay()];
+    const reg: RegExp = /(\d+)\:(\d+)\:(\d+)/;
+    const a: string = Date();
+    const res = a.match(reg);
 
-    return function(dispatch){
+    const str: string = `${year}年${month}月${day}日${res[1]}时${res[2]}分${res[3]}秒`;
+
+    return function (dispatch) {
         dispatch(setIsPurchased_AC(index));
         dispatch(purchase_AC(price));
+        dispatch(setPurchaseRecord_AC({
+            price,
+            name,
+            date: str,
+        }))
     }
 }

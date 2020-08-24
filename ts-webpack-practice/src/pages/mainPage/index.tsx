@@ -4,17 +4,18 @@ import CommodityItem from '../../components/commodityItem';
 import axios from 'axios';
 import '../../mock';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import { RootState, DataState } from '../../store/types';
-import { ActionTypes, loadData_AC } from '../../store/actions';
+import { ActionTypes, loadData_AC, buy_AC, } from '../../store/actions';
+import {ThunkDispatch, ThunkAction} from 'redux-thunk'
 
 interface Props {
     commodityData: DataState;
     loadData: (data: DataState) => void;
+    handleBuy:(price:number,index:number,name:string) => void;
 }
 
 const MainPage:FC<Props> = (props) => {
-    const { loadData, commodityData, } = props;
+    const { loadData, commodityData, handleBuy } = props;
     useEffect(() => {
         if (commodityData.length) {
             return;
@@ -32,6 +33,7 @@ const MainPage:FC<Props> = (props) => {
                 isPurchased={isPurchased}
                 key={index}
                 index={index}
+                handleBuy={handleBuy}
             />
         )
     })
@@ -50,10 +52,13 @@ const mapStateToProps = (state: RootState) => {
         commodityData: state.data,
     }
 }
-const mapDispatchToProps = (dispatch: Dispatch<ActionTypes>) => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<RootState,any,ActionTypes>) => {
     return {
         loadData: (data: DataState) => {
             dispatch(loadData_AC(data));
+        },
+        handleBuy:(price:number,index:number,name:string) => {
+            dispatch(buy_AC(price,index,name));
         }
     }
 }
