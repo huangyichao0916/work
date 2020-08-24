@@ -1,4 +1,20 @@
-## 手敲webpack以及ts、stylus等的配置
+# typescript入门项目
+
+## 本项目是webpack以及typescript的练手项目，内容有：
+- babel，webpack的配置流程，在下面
+- 一个简单的typescript的项目
+- 写这个项目时遇到的问题   problem-I-came-across.md
+- 其他的配置             other-config.md
+
+## 用到的技术栈
+ - typescript
+ - stylus
+ - redux   redux-thunk   react-redux
+ - react-router-config
+ - mockjs
+ - webpack  babel
+
+## webpack以及ts、stylus等的配置
 
 ### .babelrc    配置babel
 1. yarn add babel-loader @babel/core @babel/preset-env @babel/preset-react -D

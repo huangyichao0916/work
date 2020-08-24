@@ -1,3 +1,7 @@
+/**
+ * 生成的store文件
+ */
+
 import rootReducer from './reducer';
 import {createStore,Store,applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';

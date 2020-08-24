@@ -17,6 +17,7 @@ interface Props {
 const MainPage:FC<Props> = (props) => {
     const { loadData, commodityData, handleBuy } = props;
     useEffect(() => {
+        //在组件挂在的时候发出axios请求，将数据加载到redux中
         if (commodityData.length) {
             return;
         }
@@ -24,6 +25,8 @@ const MainPage:FC<Props> = (props) => {
             .then(res => res.data.commodity)
             .then(res => loadData(res))
     }, [])
+
+    //商品数组到商品组件的映射
     const commodityItems:Array<JSX.Element> = commodityData.map((item, index) => {
         const { name, price, isPurchased } = item;
         return (
@@ -47,12 +50,12 @@ const MainPage:FC<Props> = (props) => {
     )
 }
 
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state:RootState) => {
     return {
         commodityData: state.data,
     }
 }
-const mapDispatchToProps = (dispatch: ThunkDispatch<RootState,any,ActionTypes>) => {
+const mapDispatchToProps = (dispatch:ThunkDispatch<RootState,any,ActionTypes>) => {
     return {
         loadData: (data: DataState) => {
             dispatch(loadData_AC(data));

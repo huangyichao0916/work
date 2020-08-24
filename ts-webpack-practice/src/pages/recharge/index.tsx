@@ -30,6 +30,7 @@ class Recharge extends React.Component<Props,State>{
     }
     render(){
         const {balance,handleButtonClick} = this.props;
+
         const items:Array<JSX.Element> = this.state.chargeItems.map((item,index) => {
             return(
                 <div 

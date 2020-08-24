@@ -3,6 +3,10 @@ import { ActionTypes } from '../actions';
 import * as constants from '../constant';
 import { Reducer, combineReducers, ReducersMapObject } from 'redux';
 
+/**
+ * 所有的子reducer以及combine之后的rootReducer
+ */
+
 let defaultBalanceState: BalanceState = 1000;
 export const balanceReducer: Reducer<BalanceState, ActionTypes> = (state = defaultBalanceState, action) => {
     const { payload, type } = action;

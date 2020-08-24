@@ -9,6 +9,8 @@ interface Props {
 
 const Record: FC<Props> = (props) => {
     const { data } = props;
+
+    //充值与购买记录的数组到组件的映射
     const items: Array<JSX.Element> = data.map((item, index) => {
         const { price, name, date } = item;
         return (

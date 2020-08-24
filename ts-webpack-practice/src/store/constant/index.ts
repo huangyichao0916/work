@@ -1,3 +1,8 @@
+/**
+ * 这个文件记录着所有的actiontype
+ * 用const、type模式让项目更容易维护
+ */
+
 export const LOADDATA = 'LOADDATA';
 export type LOADDATA = typeof LOADDATA;
 

@@ -15,4 +15,20 @@
 5. 在写正则的时候遇到了不能解析ES6语法的问题
  - 原因：模块没有升级，这是一个版本缺失 core-js 的问题
  - 解决方式： yarn add core-js@2
-6. 
+6. 在写mainPage的mapDispatchToProps的时候发现普通的dispatch不能满足要求，必须要使用redux-thunk
+7. 使用redux-thunk的时候发现使用普通的Dispatch类型约束会报错，必须要使用ThunkDispatch类型约束才行
+ ```ts
+  const mapDispatchToProps = (dispatch:Dispatch<ActionTypes>) => {//报错，不支持dispatch一个函数
+      return {
+          //...
+      }
+  }
+ ```
+
+ ```ts
+  const mapDispatchToProps = (dispatch:ThunkDispatch<RootState,any,ActionTypes>) => {//正确
+      return {
+          //...
+      }
+  }
+ ```
