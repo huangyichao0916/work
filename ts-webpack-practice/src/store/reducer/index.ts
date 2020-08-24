@@ -4,7 +4,7 @@ import * as constants from '../constant';
 import { Reducer, combineReducers, ReducersMapObject } from 'redux';
 
 let defaultBalanceState: BalanceState = 1000;
-export const balanceReducer: Reducer<BalanceState,ActionTypes> = (state = defaultBalanceState, action) => {
+export const balanceReducer: Reducer<BalanceState, ActionTypes> = (state = defaultBalanceState, action) => {
     const { payload, type } = action;
     switch (type) {
         case constants.PURCHASE:
@@ -16,7 +16,7 @@ export const balanceReducer: Reducer<BalanceState,ActionTypes> = (state = defaul
 }
 
 let defaultDataState: DataState = [];
-export const dataReducer: Reducer<DataState,ActionTypes> = (state = defaultDataState, action) => {
+export const dataReducer: Reducer<DataState, ActionTypes> = (state = defaultDataState, action) => {
     const { payload, type } = action;
     switch (type) {
         case constants.LOADDATA:

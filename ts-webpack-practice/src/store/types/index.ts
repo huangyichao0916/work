@@ -7,8 +7,16 @@ interface Data {
 }
 export type DataState = Array<Data>;
 
+interface RecordItem{
+    price: number;
+    name: string;
+    date: string;
+}
+export type RecordState  = Array<RecordItem>;
+
 
 export type RootState = {
     balance: BalanceState;
     data: DataState;
+    record: RecordState;
 }
