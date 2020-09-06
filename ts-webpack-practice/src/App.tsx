@@ -1,7 +1,7 @@
 import React,{FC} from 'react';
 import './app.styl';
 import {renderRoutes} from 'react-router-config';
-import Footer from './components/footer';
+import Footer from '@/components/footer';
 
 interface Props{
     history: object;

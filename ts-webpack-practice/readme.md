@@ -1,4 +1,4 @@
-# typescript入门项目
+# webpack + typescript入门项目
 
 ## 本项目是webpack以及typescript的练手项目，内容有：
 - babel，webpack的配置流程，在下面
@@ -38,11 +38,20 @@
     ]
  }
  ```
+ 或者
+ ```json
+  {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+    ]
+  }
+ ```
 2. 配置webpack部分
  - module.rules 里面添加:
  ```js
  {
-    test: /(.js|.jsx)$/,
+    test: /\.jsx?$/,
     use:['babel-loader'],
     exclude: /node_modules/,
  }

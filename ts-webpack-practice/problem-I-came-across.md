@@ -32,3 +32,15 @@
       }
   }
  ```
+
+8. webpack使用alias属性后 tsx文件引入会报错
+ 解决方法：
+  - tsconfig.json 里面加入
+   ```json
+    "baseUrl": ".",
+    "paths": {
+        "@/*": [
+            "src/*"
+        ]
+    }
+   ```

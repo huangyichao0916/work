@@ -7,5 +7,11 @@
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "jsx": "react",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
     }
 }
