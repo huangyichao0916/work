@@ -1,4 +1,4 @@
-import React,{FC} from 'react';
+import React,{FC,useRef,useState} from 'react';
 import './app.styl';
 import {renderRoutes} from 'react-router-config';
 import Footer from '@/components/footer';
@@ -11,6 +11,8 @@ interface Props{
 }
 
 const App:FC<Props> = (props) => {
+    const [num, setNum] = useState<number[]>([])
+
     const {route} = props;
     return(
         <div className="app">
