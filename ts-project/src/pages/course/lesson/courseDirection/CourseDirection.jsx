@@ -4,18 +4,18 @@ import CourseDirectionItem from '@/components/course/lesson/courseDirectionItem/
 import classnames from 'classnames';
 
 const CourseDirection = props => {
-    let items = ['计算机专业课','后端&架构','前端&移动','产品&运营','人工智能&大数据','运维&测试','管理&效率','职场软技能','面试专场'];
+    let items = ['计算机专业课', '后端&架构', '前端&移动', '产品&运营', '人工智能&大数据', '运维&测试', '管理&效率', '职场软技能', '面试专场'];
     // console.log(items);
-    items = items.map((i,index) => {
+    items = items.map((i, index) => {
         let isEvenNumber = index % 2 === 0 ? false : true;
-        return(
-            <CourseDirectionItem 
-            key={index} 
-            title={i}
-            myClassname={classnames({
-                courseDirectionItem:true,
-                evenNumberItem:isEvenNumber,
-            })}
+        return (
+            <CourseDirectionItem
+                key={index}
+                title={i}
+                myClassname={classnames({
+                    courseDirectionItem: true,
+                    evenNumberItem: isEvenNumber,
+                })}
             />
         )
     });

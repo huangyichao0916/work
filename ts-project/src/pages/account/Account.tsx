@@ -33,16 +33,15 @@ class Account extends Component<Props, State> {
         })
     }
     render() {
-        let rechargeItemListNumber: number[] = this.state.recharge;
-        const rechargeItemList: Array<JSX.Element> = rechargeItemListNumber.map((item, index) => {
+        const rechargeItemList: Array<JSX.Element> = this.state.recharge.map((item, index) => {
             return (
                 <RechargeItem
-                    className={classNames({
+                    myClassName={classNames({
                         'highlight': index === this.state.highlightKey
                     })}
                     money={item}
                     key={index}
-                    handleHighlight={this.handleHighlight.bind(this, index)}
+                    handleHighlight={() => this.handleHighlight(index)}
                 />
             )
         })

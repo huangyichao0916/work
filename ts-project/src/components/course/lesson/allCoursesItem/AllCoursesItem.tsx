@@ -1,10 +1,24 @@
-import React from 'react';
+import React,{FC} from 'react';
 import './allCoursesItem.styl';
-import {connect} from 'react-redux';
-import {lessonBuyLessonActionCreator} from '@/store/action';
 import LazyLoad from 'react-lazyload';
+import {Payload} from '@/pages/course/lesson/allCourses/AllCourses'
 
-const AllCoursesItem = props => {
+interface Props{
+    day: number;
+    teacherDesc: string;
+    img: string;
+    isPurchased: boolean;
+    month: number;
+    teacherName: string;
+    oldprice: number;
+    price: number;
+    lessonName: string;
+    // type: string;
+    id:number;
+
+    handleBuyLesson:(price: number, id: number, payload:Payload) => void;
+}
+const AllCoursesItem:FC<Props> = props => {
     const {
         img,
         lessonName,
@@ -51,17 +65,5 @@ const AllCoursesItem = props => {
     )
 }
 
-const mapStateToProps = state => {
-    return{
 
-    }
-}
-const mapDispatchToProps = dispatch => {
-    return {
-        handleBuyLesson:(price,id,payload) => {
-            dispatch(lessonBuyLessonActionCreator(price,id,payload));
-        }
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(AllCoursesItem);
+export default AllCoursesItem;

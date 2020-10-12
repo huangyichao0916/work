@@ -1,15 +1,23 @@
-import React,{forwardRef,useState,useEffect,useMemo,useRef,useImperativeHandle} from 'react';
-import styled from 'styled-components';
-import BScroll from "better-scroll"
+import React, { forwardRef, useState, useEffect, useMemo, useRef, useImperativeHandle, FC } from 'react';
+// import styled from 'styled-components';
+import BScroll from "better-scroll";
+import './scroll.styl'
 
-const ScrollContainer = styled.div`
-    width:100%;
-    height:100vh;
-    /* padding: 0 0.44rem; */
-`
+// const ScrollContainer = styled.div`
+//     width:100%;
+//     height:100vh;
+//     /* padding: 0 0.44rem; */
+// `
+const ScrollContainer:FC<any> = (props) => {
+    return(
+        <div className="SC">
+            {props.children}
+        </div>
+    )
+}
 
-const debounce = (func, delay) => {
-    let timer;
+const debounce = (func:Function, delay:number) => {
+    let timer:null | number = null;
     return function (...args) {
       if(timer) {
         clearTimeout(timer);

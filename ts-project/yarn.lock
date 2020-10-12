@@ -1091,6 +1091,74 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@better-scroll/core@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/core/download/@better-scroll/core-2.0.4.tgz#7d3ccdc1b443553297ef3596d26e0d49e4655d98"
+  integrity sha1-fTzNwbRDVTKX7zWW0m4NSeRlXZg=
+  dependencies:
+    "@better-scroll/shared-utils" "^2.0.4"
+
+"@better-scroll/mouse-wheel@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/mouse-wheel/download/@better-scroll/mouse-wheel-2.0.4.tgz#5713e51aeeb361e7b88380123c64a2fdc42ea0ac"
+  integrity sha1-VxPlGu6zYee4g4ASPGSi/cQuoKw=
+  dependencies:
+    "@better-scroll/core" "^2.0.4"
+
+"@better-scroll/observe-dom@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/observe-dom/download/@better-scroll/observe-dom-2.0.4.tgz#a32b7bc75359cc67474e6f0534dfe4392ef2ee91"
+  integrity sha1-oyt7x1NZzGdHTm8FNN/kOS7y7pE=
+  dependencies:
+    "@better-scroll/core" "^2.0.4"
+
+"@better-scroll/pull-down@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/pull-down/download/@better-scroll/pull-down-2.0.4.tgz#ac7d69af6aefd4a9e792221882fbc5d6b3b5bf12"
+  integrity sha1-rH1pr2rv1KnnkiIYgvvF1rO1vxI=
+  dependencies:
+    "@better-scroll/core" "^2.0.4"
+
+"@better-scroll/pull-up@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/pull-up/download/@better-scroll/pull-up-2.0.4.tgz#9f865e3f81d65230d9dc3241bf2ae09a8a6380d1"
+  integrity sha1-n4ZeP4HWUjDZ3DJBvyrgmopjgNE=
+  dependencies:
+    "@better-scroll/core" "^2.0.4"
+
+"@better-scroll/scroll-bar@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/scroll-bar/download/@better-scroll/scroll-bar-2.0.4.tgz#39798b461d4cfd5c8096933c88742a821566ca89"
+  integrity sha1-OXmLRh1M/VyAlpM8iHQqghVmyok=
+  dependencies:
+    "@better-scroll/core" "^2.0.4"
+
+"@better-scroll/shared-utils@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/shared-utils/download/@better-scroll/shared-utils-2.0.4.tgz#4fc10e16fde42abfc8501ce1a521b05a862bc2e9"
+  integrity sha1-T8EOFv3kKr/IUBzhpSGwWoYrwuk=
+
+"@better-scroll/slide@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/slide/download/@better-scroll/slide-2.0.4.tgz#a10eb0c3a6425f778336e18afa59ff7b48a39f8f"
+  integrity sha1-oQ6ww6ZCX3eDNuGK+ln/e0ijn48=
+  dependencies:
+    "@better-scroll/core" "^2.0.4"
+
+"@better-scroll/wheel@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/wheel/download/@better-scroll/wheel-2.0.4.tgz#17143a80ae69831d6fd112bf861afa3bd072e278"
+  integrity sha1-FxQ6gK5pgx1v0RK/hhr6O9By4ng=
+  dependencies:
+    "@better-scroll/core" "^2.0.4"
+
+"@better-scroll/zoom@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/@better-scroll/zoom/download/@better-scroll/zoom-2.0.4.tgz#240d1b9bebc642163db0c27a0e6dcd5e5c60b6a9"
+  integrity sha1-JA0bm+vGQhY9sMJ6Dm3NXlxgtqk=
+  dependencies:
+    "@better-scroll/core" "^2.0.4"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1533,6 +1601,11 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/better-scroll@^1.12.3":
+  version "1.12.3"
+  resolved "https://registry.npm.taobao.org/@types/better-scroll/download/@types/better-scroll-1.12.3.tgz#18f4a1f78f9764fd2b846523f2515498d0cc5a5f"
+  integrity sha1-GPSh94+XZP0rhGUj8lFUmNDMWl8=
+
 "@types/classnames@^2.2.10":
   version "2.2.10"
   resolved "https://registry.npm.taobao.org/@types/classnames/download/@types/classnames-2.2.10.tgz#cc658ca319b6355399efc1f5b9e818f1a24bf999"
@@ -1567,7 +1640,7 @@
   resolved "https://registry.npm.taobao.org/@types/history/download/@types/history-4.7.8.tgz#49348387983075705fe8f4e02fb67f7daaec4934"
   integrity sha1-STSDh5gwdXBf6PTgL7Z/farsSTQ=
 
-"@types/hoist-non-react-statics@^3.3.0":
+"@types/hoist-non-react-statics@*", "@types/hoist-non-react-statics@^3.3.0":
   version "3.3.1"
   resolved "https://registry.npm.taobao.org/@types/hoist-non-react-statics/download/@types/hoist-non-react-statics-3.3.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fhoist-non-react-statics%2Fdownload%2F%40types%2Fhoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
   integrity sha1-ESSq/lEYy1kZd66xzqrtEHDrA58=
@@ -1625,17 +1698,24 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
-"@types/react-dom@*":
+"@types/react-dom@*", "@types/react-dom@^16.9.8":
   version "16.9.8"
   resolved "https://registry.npm.taobao.org/@types/react-dom/download/@types/react-dom-16.9.8.tgz#fe4c1e11dfc67155733dfa6aa65108b4971cb423"
   integrity sha1-/kweEd/GcVVzPfpqplEItJcctCM=
   dependencies:
     "@types/react" "*"
 
-"@types/react-dom@^16.9.8":
-  version "16.9.8"
-  resolved "https://registry.npm.taobao.org/@types/react-dom/download/@types/react-dom-16.9.8.tgz?cache=0&sync_timestamp=1599831636301&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact-dom%2Fdownload%2F%40types%2Freact-dom-16.9.8.tgz#fe4c1e11dfc67155733dfa6aa65108b4971cb423"
-  integrity sha1-/kweEd/GcVVzPfpqplEItJcctCM=
+"@types/react-lazyload@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/@types/react-lazyload/download/@types/react-lazyload-3.0.0.tgz#7b43b45b5db7ead73ca9ccaf93d1c24397706d01"
+  integrity sha1-e0O0W1236tc8qcyvk9HCQ5dwbQE=
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-native@*":
+  version "0.63.25"
+  resolved "https://registry.npm.taobao.org/@types/react-native/download/@types/react-native-0.63.25.tgz?cache=0&sync_timestamp=1601910604788&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact-native%2Fdownload%2F%40types%2Freact-native-0.63.25.tgz#a08bbe17a75cce993f52655a8fe75f30bf77e965"
+  integrity sha1-oIu+F6dczpk/UmVaj+dfML936WU=
   dependencies:
     "@types/react" "*"
 
@@ -1703,6 +1783,16 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
+
+"@types/styled-components@^5.1.4":
+  version "5.1.4"
+  resolved "https://registry.npm.taobao.org/@types/styled-components/download/@types/styled-components-5.1.4.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fstyled-components%2Fdownload%2F%40types%2Fstyled-components-5.1.4.tgz#11f167dbde268635c66adc89b5a5db2e69d75384"
+  integrity sha1-EfFn294mhjXGatyJtaXbLmnXU4Q=
+  dependencies:
+    "@types/hoist-non-react-statics" "*"
+    "@types/react" "*"
+    "@types/react-native" "*"
+    csstype "^3.0.2"
 
 "@types/testing-library__dom@*":
   version "7.5.0"
@@ -2490,7 +2580,7 @@ babel-preset-react-app@^9.1.2:
     babel-plugin-macros "2.8.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
 
-babel-runtime@^6.0.0, babel-runtime@^6.26.0:
+babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -2538,12 +2628,20 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-better-scroll@^1.15.2:
-  version "1.15.2"
-  resolved "https://registry.npm.taobao.org/better-scroll/download/better-scroll-1.15.2.tgz#65ffc6058b8b4ff337b8dfad4bcb334d7699ceb6"
-  integrity sha1-Zf/GBYuLT/M3uN+tS8szTXaZzrY=
+better-scroll@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/better-scroll/download/better-scroll-2.0.4.tgz#fee56f6158319065161f7970804c64438880179c"
+  integrity sha1-/uVvYVgxkGUWH3lwgExkQ4iAF5w=
   dependencies:
-    babel-runtime "^6.0.0"
+    "@better-scroll/core" "^2.0.4"
+    "@better-scroll/mouse-wheel" "^2.0.4"
+    "@better-scroll/observe-dom" "^2.0.4"
+    "@better-scroll/pull-down" "^2.0.4"
+    "@better-scroll/pull-up" "^2.0.4"
+    "@better-scroll/scroll-bar" "^2.0.4"
+    "@better-scroll/slide" "^2.0.4"
+    "@better-scroll/wheel" "^2.0.4"
+    "@better-scroll/zoom" "^2.0.4"
 
 big.js@^5.2.2:
   version "5.2.2"
