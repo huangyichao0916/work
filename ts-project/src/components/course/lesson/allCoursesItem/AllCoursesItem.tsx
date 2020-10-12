@@ -34,7 +34,7 @@ const AllCoursesItem:FC<Props> = props => {
         handleBuyLesson,
     } = props;
     return (
-        <div className="practiceCamp-item">
+        <div className="practiceCamp-item2">
             <div className="practiceCamp-item-img">
                 <LazyLoad>
                     <img src={img} alt="图片不见了" />
