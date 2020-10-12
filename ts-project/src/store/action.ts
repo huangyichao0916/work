@@ -3,7 +3,7 @@ import '@/mock/course-lesson-data';
 import * as constants from './constants'
 import {ThunkAction} from 'redux-thunk'
 import {RootState,MinePageDataItem,CourseLessonItem,
-    PracticeCampItem,StudyItem,RechargeRecordItem} from './types'
+    PracticeCampItemInt,StudyItem,RechargeRecordItem} from './types'
 
 /**
  * 充值明细相关的action 和 action creator
@@ -117,7 +117,7 @@ export interface AddDataToPracticeCampAction {
     type: constants.ADD_DATA_TO_PRACTICE_CAMP;
     [anyProps: string]: any;
 }
-export const addDataToPracticeCampActionCreator = (payload: Array<PracticeCampItem>): AddDataToPracticeCampAction => {//现在的payload是数据
+export const addDataToPracticeCampActionCreator = (payload: Array<PracticeCampItemInt>): AddDataToPracticeCampAction => {//现在的payload是数据
     return {
         type: constants.ADD_DATA_TO_PRACTICE_CAMP,
         payload,

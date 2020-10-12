@@ -1,14 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import PracticeCampItem from './practiceCampItem/PracticeCampItem'
 import './practiceCamp.styl'
 import axios from 'axios';
 import '@/mock/course-practiceCamp-data';
 import { connect } from 'react-redux';
-import { addDataToPracticeCampActionCreator } from '@/store/action';
+import {ThunkDispatch} from 'redux-thunk'
+import { addDataToPracticeCampActionCreator, ActionType, practiceCampBuyLessonActionCreator } from '../../../store/action';
 import BScroll from 'better-scroll';
+import {PracticeCampItemInt, StudyItem} from '../../../store/types'
+import { RootState } from '../../../store/types';
 
-const PracticeCamp = props => {
-    let { practiceCampDataSource, loadPracticeCampData } = props;
+
+interface Props{
+    practiceCampDataSource:Array<PracticeCampItemInt>;
+    loadPracticeCampData:(payload:Array<PracticeCampItemInt>) => void;
+    onHandleJoinCamp:(price:number,id:number,lesson:StudyItem) => void;
+}
+const PracticeCamp:FC<Props> = props => {
+    let { practiceCampDataSource, loadPracticeCampData, onHandleJoinCamp} = props;
     useEffect(() => {
         if (practiceCampDataSource.length > 0) {
             // console.log('因为practiceCampDataSource中有数据，所以阻断了axios请求');
@@ -18,7 +27,8 @@ const PracticeCamp = props => {
             .then(res => res.data.practiceCamps)
             .then(res => { loadPracticeCampData(res) })
     }, [])
-    const [scroll, setScroll] = useState(null);
+
+    const [scroll, setScroll] = useState<null | BScroll>(null);
     useEffect(() => {
         const bscroll = new BScroll('.practiceCamp-wrapper', {
             scrollX: false,
@@ -28,12 +38,11 @@ const PracticeCamp = props => {
         setScroll(bscroll);
     }, [])
 
-    let items = practiceCampDataSource.map((item, i) => {
+    const items:Array<JSX.Element> = practiceCampDataSource.map((item:PracticeCampItemInt, i:number) => {
         const { img, title, name, desc, month, day, price, oldprice, isPurchased } = item;
         return (
             <PracticeCampItem
                 img={img}
-                key={i}
                 id={i}
                 lessonName={title}
                 teacherName={name}
@@ -43,6 +52,10 @@ const PracticeCamp = props => {
                 price={price}
                 oldprice={oldprice}
                 isPurchased={isPurchased}
+
+                key={i}
+
+                onHandleJoinCamp={onHandleJoinCamp}
             />
         )
     })
@@ -69,10 +82,14 @@ const mapStateToProps = state => {
         practiceCampDataSource: state.getIn(['practiceCampDataSource']).toJS(),
     }
 }
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch:ThunkDispatch<RootState,any,ActionType>) => {
     return {
-        loadPracticeCampData: (payload) => {
+        loadPracticeCampData: (payload:Array<PracticeCampItemInt>) => {
             dispatch(addDataToPracticeCampActionCreator(payload));
+        },
+        onHandleJoinCamp: (price:number,id:number,lesson:StudyItem) => {
+            // console.log(payload,id,lesson)
+            dispatch(practiceCampBuyLessonActionCreator(price,id,lesson))
         }
     }
 }

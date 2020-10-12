@@ -31,7 +31,7 @@ export interface CourseLessonItem {
 export type CourseLessonItemState = List<CourseLessonItem>
 
 //PracticeCamp
-export interface PracticeCampItem {
+export interface PracticeCampItemInt {
     day: number;
     desc: string;
     id: number;

@@ -8,7 +8,7 @@
         "allowSyntheticDefaultImports": true,
         "skipLibCheck": true,
         "jsx": "react",
-        "baseUrl": ".",
+        "baseUrl": "./",
         "paths": {
             "@/*": [
                 "src/*"

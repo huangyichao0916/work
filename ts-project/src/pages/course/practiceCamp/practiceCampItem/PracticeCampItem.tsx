@@ -1,8 +1,22 @@
-import React from 'react';
+import React,{FC} from 'react';
 import './practiceCampItem.styl'
-import { connect } from 'react-redux'
-import { practiceCampBuyLessonActionCreator } from '@/store/action'
-const PracticeCampItem = props => {
+import {StudyItem} from '../../../../store/types';
+
+interface Props{
+    day: number;
+    teacherDesc: string;
+    id: number;
+    img: string;
+    isPurchased: boolean;
+    month: number;
+    teacherName: string;
+    oldprice: number;
+    price: number;
+    lessonName: string;
+
+    onHandleJoinCamp:(price:number,id:number,lesson:StudyItem) => void;
+}
+const PracticeCampItem:FC<Props> = props => {
     const {
         img,
         lessonName,
@@ -12,9 +26,10 @@ const PracticeCampItem = props => {
         day,
         price,
         oldprice,
-        onHandleJoinCamp,
         isPurchased,
         id,
+
+        onHandleJoinCamp,
     } = props;
 
     return (
@@ -46,18 +61,4 @@ const PracticeCampItem = props => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onHandleJoinCamp: (payload,id,lesson) => {
-            // console.log(payload,id,lesson)
-            dispatch(practiceCampBuyLessonActionCreator(payload,id,lesson))
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(PracticeCampItem);
+export default PracticeCampItem;
