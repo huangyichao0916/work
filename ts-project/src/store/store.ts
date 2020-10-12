@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 // import axios from 'axios';
 // import { addDataToMinePageActionCreator } from '@/store/action';
 
-const rootReducer:Reducer<RootState,ActionType> = combineReducers(reducers);
+const rootReducer:Reducer<RootState,ActionType> = combineReducers<RootState,ActionType>(reducers);
 
 const store:Store<RootState,ActionType> = createStore(rootReducer,applyMiddleware(thunk));
 

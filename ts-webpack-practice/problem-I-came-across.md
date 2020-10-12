@@ -44,3 +44,30 @@
         ]
     }
    ```
+
+9. 解决tsx文件引入非代码块报错问题
+ 解决方法：
+  -  新建一个ts声明文件：images.d.ts
+     ```ts
+        declare module '*.svg'
+        declare module '*.png'
+        declare module '*.jpg'
+        declare module '*.jpeg'
+        declare module '*.gif'
+        declare module '*.bmp'
+        declare module '*.tiff'
+     ```
+  -  将这个文件配置到tsconfig.json文件中
+     ```json
+        "include":[
+            "./image.d.ts"
+        ]
+     ```
+
+10. 解决Typescript编译时遇到d.ts中的定义冲突（TS2300: Duplicate identifier）
+ 解决方法：
+  - 在tsconfig.json的compilerOption中加入：
+   ```json
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true
+   ```

@@ -1,31 +1,51 @@
 import React, { Component } from 'react';
-import accountImg from '../../assets/imgs/account.png'
+import accountImg from '@/assets/imgs/account.png'
 import './account.styl'
 import RechargeItem from './rechargeItem/RechargeItem'
 import classNames from 'classnames'
 import { connect } from 'react-redux'
-import {Link} from 'react-router-dom';
-import {rechargeAndRecordActionCreator} from '@/store/action';
+import { Link } from 'react-router-dom';
+import { rechargeAndRecordActionCreator } from '@/store/action';
+import { ThunkDispatch } from 'redux-thunk'
+import { RootState } from '@/store/types'
+import { ActionType } from '@/store/action'
 
-class Account extends Component {
-    constructor() {
-        super();
-        this.state = {
-            recharge: [6, 12, 68, 108, 218, 318, 418, 648, 998],
-            highlightKey: 0
-        }
+interface Props {
+    balance: number;
+    handleRecharge: Function;
+}
+interface State {
+    recharge: number[];
+    highlightKey: number;
+}
+class Account extends Component<Props, State> {
+    state = {
+        recharge: [6, 12, 68, 108, 218, 318, 418, 648, 998],
+        highlightKey: 0,
     }
-    goBack = () => {
+    goBack = (): any => {
         window.history.back();
     }
-    handleHighlight = (key) => {
+    handleHighlight = (key: number): any => {
         // console.log(this.state)
         this.setState({
             highlightKey: key
         })
     }
     render() {
-        const rechargeItemList = this.state.recharge;
+        let rechargeItemListNumber: number[] = this.state.recharge;
+        const rechargeItemList: Array<JSX.Element> = rechargeItemListNumber.map((item, index) => {
+            return (
+                <RechargeItem
+                    className={classNames({
+                        'highlight': index === this.state.highlightKey
+                    })}
+                    money={item}
+                    key={index}
+                    handleHighlight={this.handleHighlight.bind(this, index)}
+                />
+            )
+        })
         return (
             <div className="account-wrapper">
                 <div className="account-top">
@@ -51,34 +71,25 @@ class Account extends Component {
                     </div>
                     <div className="recharge-item-wrapper">
                         {
-                            rechargeItemList.map((item, index) => {
-                                return (<RechargeItem
-                                    className={classNames({
-                                        'highlight': index === this.state.highlightKey
-                                    })}
-                                    money={item}
-                                    key={index}
-                                    handleHighlight={this.handleHighlight.bind(this, index)}
-                                />)
-                            })
+                            rechargeItemList
                         }
                     </div>
-                    <button onClick={() => {this.props.handleRecharge(this.state.recharge[this.state.highlightKey])}}>确认充值</button>
+                    <button onClick={() => { this.props.handleRecharge(this.state.recharge[this.state.highlightKey]) }}>确认充值</button>
                 </div>
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         balance: state.getIn(['account'])
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, any, ActionType>) => {
     return {
-        handleRecharge: (payload) => {
+        handleRecharge: (payload: number) => {
             dispatch(rechargeAndRecordActionCreator(payload))
         }
     }

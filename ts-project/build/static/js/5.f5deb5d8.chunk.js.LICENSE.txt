@@ -10,18 +10,6 @@ object-assign
           墨智 mozhi.gyy@taobao.com nuysoft@gmail.com
       */
 
-/*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-
-/*!
- * better-normal-scroll v1.15.2
- * (c) 2016-2019 ustbhuangyi
- * Released under the MIT License.
- */
-
 /** @license React v0.19.1
  * scheduler.production.min.js
  *
