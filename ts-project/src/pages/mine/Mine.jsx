@@ -5,10 +5,8 @@ import imgg from '@/assets/imgs/account.png';
 import MineItem from './mineItem/MineItem'
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css";
-// import axios from 'axios';
 import classNames from 'classnames';
 import { connect } from 'react-redux'
-// import { addDataToMinePageActionCreator } from '@/store/action';
 import BScroll from 'better-scroll';
 
 class Mine extends Component {

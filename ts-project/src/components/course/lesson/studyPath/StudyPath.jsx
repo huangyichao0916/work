@@ -8,7 +8,7 @@ class StudyPath extends Component {
         // console.log('studypatch重新渲染');
         const { courseLessonDataSource } = this.props;
         const studyPathItemData = courseLessonDataSource.reduce((pre, cur) => {
-            let type = cur.getIn(['type']);
+            let type = cur.type;
             if (!pre[type]) {
                 pre[type] = 1;
             } else {

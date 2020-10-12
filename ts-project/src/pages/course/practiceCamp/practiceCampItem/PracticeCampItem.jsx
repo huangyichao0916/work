@@ -55,7 +55,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onHandleJoinCamp: (payload,id,lesson) => {
-            // console.log(payload,id)
+            // console.log(payload,id,lesson)
             dispatch(practiceCampBuyLessonActionCreator(payload,id,lesson))
         }
     }

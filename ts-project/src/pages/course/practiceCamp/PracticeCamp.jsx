@@ -11,12 +11,12 @@ const PracticeCamp = props => {
     let {practiceCampDataSource,loadPracticeCampData} = props;
     useEffect(() => {
         if (practiceCampDataSource.length > 0) {
-            console.log('因为practiceCampDataSource中有数据，所以阻断了axios请求');
+            // console.log('因为practiceCampDataSource中有数据，所以阻断了axios请求');
             return;
         }
         axios.get('mock/course/practiceCamp')
             .then(res => res.data.practiceCamps)
-            .then(res => loadPracticeCampData(res))
+            .then(res => {loadPracticeCampData(res)})
     }, [])
     const [scroll,setScroll] = useState(null);
     useEffect(() => {
@@ -66,7 +66,7 @@ const PracticeCamp = props => {
 
 const mapStateToProps = state => {
     return {
-        practiceCampDataSource:state.getIn(['practiceCampDataSource']).toJS(),
+        practiceCampDataSource: state.getIn(['practiceCampDataSource']).toJS(),
     }
 }
 const mapDispatchToProps = dispatch => {

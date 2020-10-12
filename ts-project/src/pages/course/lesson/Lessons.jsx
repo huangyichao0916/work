@@ -38,7 +38,7 @@ class Lesson extends Component {
                     onScroll={forceCheck}
                     >
                         <div className="content">
-                            <StudyPath courseLessonDataSource={courseLessonDataSource}/>
+                            <StudyPath courseLessonDataSource={courseLessonDataSource.toJS()}/>
                             <CourseDirection />
                             <AllCourses courseLessonDataSource={courseLessonDataSource.toJS()}/>
                         </div>
