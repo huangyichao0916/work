@@ -7,14 +7,10 @@ import { connect } from 'react-redux';
 import { addDataToCourseLessonActionCreator, courseLessonPullDownActionCreator } from '@/store/action';
 import CourseDirection from './courseDirection/CourseDirection';
 import AllCourses from './allCourses/AllCourses';
-// import BScroll from 'better-scroll';
-import Scroll from '@/components/Scroll/Scroll';
-import { forceCheck } from 'react-lazyload';
 import { CourseLessonItem } from '@/store/types'
 import { ThunkDispatch } from 'redux-thunk';
 import { RootState } from '@/store/types'
 import { ActionType } from '@/store/action'
-// import BScroll from 'better-scroll'
 import BetterScroll from '@better-scroll/core'
 import Pullup from '@better-scroll/pull-up'
 

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
-class LessonEveryday extends Component {
+interface Props{
+
+}
+class LessonEveryday extends Component<Props> {
     state = {  }
     render() { 
         return (
             <div>
-                LessonEveryday
+                正在开发中。。。
             </div>
         );
     }
