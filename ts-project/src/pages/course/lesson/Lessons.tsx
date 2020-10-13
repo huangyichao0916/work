@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, FC } from 'react';
 import StudyPath from '@/components/course/lesson/studyPath/StudyPath';
 import './lesson.styl';
 import axios from 'axios';
@@ -11,51 +11,46 @@ import { CourseLessonItem } from '@/store/types'
 import { ThunkDispatch } from 'redux-thunk';
 import { RootState } from '@/store/types'
 import { ActionType } from '@/store/action'
-import BetterScroll from '@better-scroll/core'
-import Pullup from '@better-scroll/pull-up'
+
+import BScroll from '@/components/baseUI/MyBScroll'
 
 
 interface Props {
     addDataToCourseLesson: Function;
-    handlePullDown: Function;
+    handlePullUp:(...args: any[]) => any;
     courseLessonDataSource: Array<CourseLessonItem>
 }
-class Lesson extends Component<Props> {
-    componentDidMount() {
-        BetterScroll.use(Pullup)
-        const bs = new BetterScroll('.lesson', {
-            scrollY: true,
-            click:true,
-            scrollX: false,
-            pullUpLoad:true,
-        })
-        bs.on('pullingUp',() => {
-            console.log(`拉到底部了，再次请求数据，现在有${this.props.courseLessonDataSource.length + 10}条数据`)
-            this.props.handlePullDown();
-        })
 
-        if (this.props.courseLessonDataSource.length > 0) {
-            // console.log('courseLessonDataSource已经有数据，所以阻断了axios请求');
+const Lesson: FC<Props> = (props) => {
+    const { courseLessonDataSource, handlePullUp, addDataToCourseLesson, } = props;
+
+    function loadCourseLesson():void {
+        axios.get('/mock/course/lesson')
+            .then(res => res.data.courses)
+            .then(res => addDataToCourseLesson(res));
+    }
+
+    useEffect(() => {
+        if (courseLessonDataSource.length > 0) {
             return;
         }
         console.log('请求courseLesson的数据');
-        axios.get('/mock/course/lesson')
-            .then(res => res.data.courses)
-            .then(res => this.props.addDataToCourseLesson(res));
-    }
-    render() {
-        // console.log('lesson重新渲染');
-        const { courseLessonDataSource } = this.props;
-        return (
-            <div className="lesson">
-                <div className="content">
-                    <StudyPath courseLessonDataSource={courseLessonDataSource} />
-                    <CourseDirection />
-                    <AllCourses courseLessonDataSource={courseLessonDataSource} />
-                </div>
+        loadCourseLesson()
+    }, [])
+
+
+    return (
+        <BScroll
+            pullUp={handlePullUp}
+            pullDown={loadCourseLesson}
+        >
+            <div className="content">
+                <StudyPath courseLessonDataSource={courseLessonDataSource} />
+                <CourseDirection />
+                <AllCourses courseLessonDataSource={courseLessonDataSource} />
             </div>
-        );
-    }
+        </BScroll>
+    );
 }
 
 const mapStateToProps = state => {
@@ -68,7 +63,7 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, any, ActionType>)
         addDataToCourseLesson: (payload: Array<CourseLessonItem>) => {
             dispatch(addDataToCourseLessonActionCreator(payload));
         },
-        handlePullDown: () => {
+        handlePullUp: () => {
             // console.log('123');
             dispatch(courseLessonPullDownActionCreator());
         }

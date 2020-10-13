@@ -1,2 +1,0 @@
-(this["webpackJsonpfirst-project"]=this["webpackJsonpfirst-project"]||[]).push([[15],{103:function(t,e,n){},104:function(t,e,n){},126:function(t,e,n){"use strict";n.r(e);var c=n(0),r=n.n(c),s=(n(103),n(104),n(24));e.default=function(t){return r.a.createElement("div",{className:"app"},Object(s.a)(t.route.routes))}}}]);
-//# sourceMappingURL=15.8f4045e0.chunk.js.map

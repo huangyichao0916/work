@@ -36,6 +36,9 @@ const PracticeCamp: FC<Props> = props => {
             scrollY: true,
         })
         setScroll(bscroll);
+        return () => {
+            setScroll(null)
+        }
     }, [])
 
     const items: Array<JSX.Element> = practiceCampDataSource.map((item: PracticeCampItemInt, i: number) => {
