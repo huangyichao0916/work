@@ -24,7 +24,7 @@ class MineItem extends Component<Props> {
                 <span className="icon iconfont left" dangerouslySetInnerHTML={{ __html: icon }}></span>
                 <div className="title-wrapper">
                     <div className="title">{title}</div>
-                    {isDotShow && <div className="red-dot"></div>}
+                    {isDotShowBoo && <div className="red-dot"></div>}
                     <div className="detail">{balance}</div>
                 </div>
                 <span className="icon iconfont right">&#xe613;</span>

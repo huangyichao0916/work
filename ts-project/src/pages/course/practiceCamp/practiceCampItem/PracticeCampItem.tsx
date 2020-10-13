@@ -1,6 +1,6 @@
 import React,{FC} from 'react';
 import './practiceCampItem.styl'
-import {StudyItem} from '../../../../store/types';
+import {StudyItemInt} from '../../../../store/types';
 
 interface Props{
     day: number;
@@ -14,7 +14,7 @@ interface Props{
     price: number;
     lessonName: string;
 
-    onHandleJoinCamp:(price:number,id:number,lesson:StudyItem) => void;
+    onHandleJoinCamp:(price:number,id:number,lesson:StudyItemInt) => void;
 }
 const PracticeCampItem:FC<Props> = props => {
     const {

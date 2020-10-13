@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './study.styl'
 import { Header } from './studyHeader.style'
 import { connect } from 'react-redux'
 import StudyItem from './studyItem/StudyItem'
 import {Link} from 'react-router-dom';
+import {StudyItemInt} from '@/store/types'
 
-const Study = props => {
-    const studyItemList = props.studyItems.map((item, i) => {
+interface Props{
+    studyItems:Array<StudyItemInt>
+}
+const Study:FC<Props> = props => {
+    const studyItemList:Array<JSX.Element> = props.studyItems.map((item:StudyItemInt, i:number) => {
         return (
             <StudyItem {...item} key={i}/>
         )
     })
-    const len = studyItemList.length > 0 ? true : false;
+    const len:boolean = studyItemList.length > 0 ? true : false;
     return (
         <div className="study">
             <Header>

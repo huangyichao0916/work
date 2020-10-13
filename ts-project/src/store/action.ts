@@ -3,7 +3,7 @@ import '@/mock/course-lesson-data';
 import * as constants from './constants'
 import {ThunkAction} from 'redux-thunk'
 import {RootState,MinePageDataItem,CourseLessonItem,
-    PracticeCampItemInt,StudyItem,RechargeRecordItem} from './types'
+    PracticeCampItemInt,StudyItemInt,RechargeRecordItemInt} from './types'
 
 /**
  * 充值明细相关的action 和 action creator
@@ -16,7 +16,7 @@ export const addRecordToRechargeRecordActionCreator = (payload: number): AddReco
     let d = Date();
     let year: string = d.slice(11, 15) + d.slice(4, 7) + d.slice(8, 10);
     let time: string = d.slice(16, 25);
-    let newPayload: RechargeRecordItem = {
+    let newPayload: RechargeRecordItemInt = {
         year,
         time,
         number: payload,
@@ -96,7 +96,7 @@ export interface AddPurchasedLessonsToStudyPageAction {
     type: constants.ADD_PURCHASED_LESSONS_TO_STUDY_PAGE;
     [anyProps: string]: any;
 }
-export const addPurchasedLessonsToStudyPageActionCreator = (payload: StudyItem): AddPurchasedLessonsToStudyPageAction => {
+export const addPurchasedLessonsToStudyPageActionCreator = (payload: StudyItemInt): AddPurchasedLessonsToStudyPageAction => {
     return {
         type: constants.ADD_PURCHASED_LESSONS_TO_STUDY_PAGE,
         payload
@@ -161,7 +161,7 @@ export type ActionType = AddRecordToRechargeRecordAction | BuyLessonAction | Rec
 export type ThunkActionType = ThunkAction<any,RootState,any,ActionType>
 
 // practiceCamp购买课程相关的action creator 
-export const practiceCampBuyLessonActionCreator = (price:number, id:number, lesson:StudyItem):ThunkActionType => {
+export const practiceCampBuyLessonActionCreator = (price:number, id:number, lesson:StudyItemInt):ThunkActionType => {
     return (dispatch, getState) => {
         dispatch(buyLessonActionCreator(price));
         dispatch(setIsDotedToTrueActionCreator(0));
@@ -178,7 +178,7 @@ export const rechargeAndRecordActionCreator = (howMuch:number):ThunkActionType =
         // console.log(getState().getIn(['rechargeRecordDataSource'].toJS()));
     }
 }
-export const lessonBuyLessonActionCreator = (price:number, id:number, lesson:StudyItem):ThunkActionType => {
+export const lessonBuyLessonActionCreator = (price:number, id:number, lesson:StudyItemInt):ThunkActionType => {
     return (dispatch, getState) => {
         dispatch(buyLessonActionCreator(price));
         dispatch(setIsDotedToTrueActionCreator(0));

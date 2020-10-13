@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './studyItem.styl'
 
-const StudyItem = props => {
+interface Props{
+    lessonName:string;
+    teacherName:string;
+    teacherDesc:string;
+}
+const StudyItem:FC<Props> = props => {
     const { lessonName, teacherName, teacherDesc } = props;
     return (
         <div className="study-item">

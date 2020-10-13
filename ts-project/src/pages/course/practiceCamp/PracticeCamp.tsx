@@ -7,14 +7,14 @@ import { connect } from 'react-redux';
 import {ThunkDispatch} from 'redux-thunk'
 import { addDataToPracticeCampActionCreator, ActionType, practiceCampBuyLessonActionCreator } from '../../../store/action';
 import BScroll from 'better-scroll';
-import {PracticeCampItemInt, StudyItem} from '../../../store/types'
+import {PracticeCampItemInt, StudyItemInt} from '../../../store/types'
 import { RootState } from '../../../store/types';
 
 
 interface Props{
     practiceCampDataSource:Array<PracticeCampItemInt>;
     loadPracticeCampData:(payload:Array<PracticeCampItemInt>) => void;
-    onHandleJoinCamp:(price:number,id:number,lesson:StudyItem) => void;
+    onHandleJoinCamp:(price:number,id:number,lesson:StudyItemInt) => void;
 }
 const PracticeCamp:FC<Props> = props => {
     let { practiceCampDataSource, loadPracticeCampData, onHandleJoinCamp} = props;
@@ -87,7 +87,7 @@ const mapDispatchToProps = (dispatch:ThunkDispatch<RootState,any,ActionType>) =>
         loadPracticeCampData: (payload:Array<PracticeCampItemInt>) => {
             dispatch(addDataToPracticeCampActionCreator(payload));
         },
-        onHandleJoinCamp: (price:number,id:number,lesson:StudyItem) => {
+        onHandleJoinCamp: (price:number,id:number,lesson:StudyItemInt) => {
             // console.log(payload,id,lesson)
             dispatch(practiceCampBuyLessonActionCreator(price,id,lesson))
         }

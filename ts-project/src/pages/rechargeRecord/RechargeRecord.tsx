@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './rechargeRecord.styl';
 import { connect } from 'react-redux';
-import {RechargeRecordItem} from './rechargeRecordItem/RechargeRecordItem';
+import { RechargeRecordItem } from './rechargeRecordItem/RechargeRecordItem';
+import { RechargeRecordItemInt } from '@/store/types'
 
-const RechargeRecord = props => {
-    const {dataSource} = props;
-    const items = dataSource.map((item,index) => {
-        const {year,time,number} = item;
-        return(
+interface Props {
+    dataSource: Array<RechargeRecordItemInt>;
+}
+const RechargeRecord: FC<Props> = props => {
+    const { dataSource } = props;
+    const items: Array<JSX.Element> = dataSource.map((item: RechargeRecordItemInt, index: number) => {
+        const { year, time, number } = item;
+        return (
             <RechargeRecordItem key={index}>
                 <div className="up">
                     充值了{number}元
                 </div>
                 <div className="down">
                     日期：{year}
-                    <br/>
+                    <br />
                     时间：{time}
                 </div>
             </RechargeRecordItem>
@@ -36,13 +40,8 @@ const RechargeRecord = props => {
 
 const mapStateToProps = state => {
     return {
-        dataSource:state.getIn(['rechargeRecordDataSource']).toJS(),
-    }
-}
-const mapDispatchToProps = dispatch => {
-    return {
-
+        dataSource: state.getIn(['rechargeRecordDataSource']).toJS(),
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RechargeRecord);
+export default connect(mapStateToProps)(RechargeRecord);

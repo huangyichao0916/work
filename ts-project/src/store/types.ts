@@ -47,20 +47,20 @@ export interface PracticeCampItemInt {
 export type PracticeCampItemState = List<PracticeCampItemState>
 
 //StudyItem
-export interface StudyItem {
+export interface StudyItemInt {
     lessonName: string;
     teacherDesc: string;
     teacherName: string;
 }
-export type StudyItemState = List<StudyItem>
+export type StudyItemState = List<StudyItemInt>
 
 //RechargeRecord
-export interface RechargeRecordItem{
+export interface RechargeRecordItemInt{
     year:string;
     time:string;
     number:number;
 }
-export type RechargeRecordState = List<RechargeRecordItem>
+export type RechargeRecordState = List<RechargeRecordItemInt>
 
 
 export type RootState = {

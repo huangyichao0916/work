@@ -11,11 +11,15 @@
         "baseUrl": "./",
         "paths": {
             "@/*": [
-                "src/*"
-            ]
+                "./src/*"
+            ],
         }
     },
-    "include":[
-        "./images.d.ts"
+    "include": [
+        "./images.d.ts",
+        "./src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
     ]
 }
