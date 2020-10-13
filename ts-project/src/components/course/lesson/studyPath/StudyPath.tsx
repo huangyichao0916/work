@@ -1,32 +1,34 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './studyPath.styl';
 import StudyPathItem from './studyPathItem/StudyPathItem';
-import { CourseLessonItem } from '../../../../store/types'
+import axios from 'axios'
 
-interface Props{
-    courseLessonDataSource: CourseLessonItem[]
+interface Item {
+    id: number;
+    name: string;
+    icon: string;
+    product_count: number;
+    [otherProps: string]: any;
 }
-interface StudyPathItemData{
-    [anyProps:string]:number;
+interface State {
+    data: Item[];
 }
-class StudyPath extends Component<Props> {
+class StudyPath extends PureComponent<any, State> {
+    state = {
+        data: [],
+    }
+    componentDidMount() {
+        axios.get<Item[]>('/data/studyPath.json')
+            .then(res => this.setState({
+                data: res.data,
+            }))
+    }
     render() {
-        // console.log('studypatch重新渲染');
-        const { courseLessonDataSource } = this.props;
-        const studyPathItemData:StudyPathItemData = courseLessonDataSource.reduce((pre, cur) => {
-            let type = cur.type;
-            if (!pre[type]) {
-                pre[type] = 1;
-            } else {
-                pre[type]++;
-            }
-            return pre;
-        }, {})
-
-        // console.log(studyPathItemData);//object
-        const finalStudyPathItem:Array<JSX.Element> = Object.keys(studyPathItemData).map((i,index) => {
+        const { data } = this.state;
+        const finalStudyPathItem: Array<JSX.Element> = data.map((i: Item, index: number) => {
+            const { id, name, icon, product_count } = i;
             return (
-                <StudyPathItem key={index} type={i} total={studyPathItemData[i]}/>
+                <StudyPathItem key={id} name={name} product_count={product_count} icon={icon} />
             )
         })
         return (

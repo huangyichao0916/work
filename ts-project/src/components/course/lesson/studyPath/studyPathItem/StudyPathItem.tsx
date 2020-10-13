@@ -1,29 +1,30 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './studyPathItem.styl';
 
-interface Props{
-    type:string;
-    total:number;
+interface Props {
+    name: string;
+    icon: string;
+    product_count: number;
 }
-class StudyPathItem extends Component<Props> {
-    render() { 
-        const {type , total} = this.props;
+class StudyPathItem extends PureComponent<Props> {
+    render() {
+        const { name, icon, product_count } = this.props;
         return (
             <div className="studyPathItem">
                 <div className="description">
                     <div className="type">
-                        {type}
+                        {name}
                     </div>
                     <div className="totalLessons">
-                        共有{total}门课程
+                        共有{product_count}门课程
                     </div>
                 </div>
                 <div className="img">
-                    <img src="https://static001.geekbang.org/resource/image/50/b6/50cac4f8a8e9b600636c0890967113b6.jpg" alt=""/>
+                    <img src={icon} alt="" />
                 </div>
             </div>
         );
     }
 }
- 
+
 export default StudyPathItem;
