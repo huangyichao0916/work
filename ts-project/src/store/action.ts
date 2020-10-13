@@ -68,14 +68,7 @@ export interface SetIsDotedToFalseAction {
     type: constants.SET_IS_DOTED_TO_FALSE;
     [anyProps: string]: any;
 }
-// interface MinePageDataItem {
-//     icon: string;
-//     id: number;
-//     isBalanceShow: number;
-//     isDotShow: number;
-//     linkTo: string;
-//     title: string;
-// }
+
 export const addDataToMinePageActionCreator = (payload: Array<MinePageDataItem>): AddDataToMinePageAction => {//现在的payload是mine的datasource
     return {
         type: constants.ADD_DATA_TO_MINE_PAGE,

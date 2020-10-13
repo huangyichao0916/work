@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import { Header } from '../study/studyHeader.style'
 import './discover.styl'
 import Swiper from "swiper"
@@ -7,16 +7,30 @@ import GeekUniverSityItem from './geekUniversityItem/GeekUniversityItem'
 import axios from 'axios';
 import '@/mock/discover-practiceCamp-data.js'
 
-function Discover() {
-    const swiperImgArr = [1, 2, 3, 4, 5];
-    const [discoverData, setDiscoverData] = useState([]);
+interface DiscoverData {
+    id: number;
+    title: string;
+    img: string;
+    lessonDesc: string;
+    teacher: string;
+    teacherDesc: string;
+    phase: number;
+    month: number;
+    day: number;
+}
+const Discover: FC<any> = () => {
+    const swiperImgArr: number[] = [1, 2, 3, 4, 5];
+    const [discoverData, setDiscoverData] = useState<DiscoverData[]>([]);
+
+    const [sw, setSw] = useState<null | Swiper>(null)
     useEffect(() => {
-        new Swiper(".slider-container", {
+        const newSw = new Swiper(".slider-container", {
             loop: true,
             autoplay: {
                 delay: 2000,
             },
         })
+        setSw(newSw)
     }, [])
     useEffect(() => {
         axios.get('mock/discover/practiceCamp')
@@ -27,23 +41,7 @@ function Discover() {
             })
     }, [])
 
-    // const items = discoverData.map((item, i) => {
-    //     const { title, lessonDesc, month, day, img, teacher, teacherDesc, phase } = item;
-    //     return (
-    //         <GeekUniverSityItem
-    //             key={i}
-    //             title={title}
-    //             img={img}
-    //             lessonDesc={lessonDesc}
-    //             teacher={teacher}
-    //             teacherDesc={teacherDesc}
-    //             phase={phase}
-    //             month={month}
-    //             day={day}
-    //         />
-    //     )
-    // })
-    const items = discoverData.map((item,index) => <GeekUniverSityItem {...item} key={index}/>)
+    const items: Array<JSX.Element> = discoverData.map((item, index) => <GeekUniverSityItem {...item} key={index} />)
 
     return (
         <div className="discover">
@@ -91,7 +89,7 @@ function Discover() {
                         <div className="view-more">查看更多</div>
                     </div>
                     <div className="geek-university-wrapper">
-                       {items}
+                        {items}
                     </div>
                 </div>
                 <div className="geek-university">
@@ -101,16 +99,16 @@ function Discover() {
                         <div className="view-more">查看更多</div>
                     </div>
                     <div className="geek-university-wrapper">
-                       {items}
+                        {items}
                     </div>
                     <div className="change-for-other">
                         <span className="icon iconfont">&#xe638; 换一换</span>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     );
 }
 
-export default Discover;
+export default React.memo(Discover);

@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import './studyPathItem.styl';
 
-class StudyPathItem extends Component {
+interface Props{
+    type:string;
+    total:number;
+}
+class StudyPathItem extends Component<Props> {
     render() { 
         const {type , total} = this.props;
         return (

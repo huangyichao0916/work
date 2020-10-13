@@ -48,17 +48,11 @@ class Lesson extends Component<Props> {
         const { courseLessonDataSource } = this.props;
         return (
             <div className="lesson">
-                {/* <Scroll
-                    direction={'vertical'}
-                    pullUp={handlePullDown}
-                    onScroll={forceCheck}
-                > */}
-                    <div className="content">
-                        <StudyPath courseLessonDataSource={courseLessonDataSource} />
-                        <CourseDirection />
-                        <AllCourses courseLessonDataSource={courseLessonDataSource} />
-                    </div>
-                {/* </Scroll> */}
+                <div className="content">
+                    <StudyPath courseLessonDataSource={courseLessonDataSource} />
+                    <CourseDirection />
+                    <AllCourses courseLessonDataSource={courseLessonDataSource} />
+                </div>
             </div>
         );
     }

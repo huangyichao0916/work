@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Dispatch } from 'react';
 import './mine.styl'
 import avatar from '@/assets/imgs/avatar.JPG';
 import imgg from '@/assets/imgs/account.png';
@@ -8,8 +8,16 @@ import "swiper/css/swiper.min.css";
 import classNames from 'classnames';
 import { connect } from 'react-redux'
 import BScroll from 'better-scroll';
+import {MinePageDataItem} from '../../store/types'
+import { setIsDotedToFalseActionCreator, SetIsDotedToFalseAction } from '../../store/action';
 
-class Mine extends Component {
+
+interface Props{
+    items:Array<MinePageDataItem>;
+    balance:number;
+    handleOnClick:(id:number, isDotShow:boolean) => void;
+}
+class Mine extends Component<Props> {
     componentDidMount() {
         new Swiper(".slider-container", {
             loop: true,
@@ -17,35 +25,19 @@ class Mine extends Component {
                 delay: 2000,
             },
         })
-        this.bscroll = new BScroll('.bscroll-wrapper', {
+        new BScroll('.bscroll-wrapper', {
             scrollY: true,
             click: true,
             scrollX: false
         })
-        // console.log(this.props.items.size)
-        if (this.props.items.length > 0) {
-            return;
-        }
-        // axios.get('/mine/mineItem.json')
-        //     .then(res => res.data.items)
-        //     .then(res => {
-        //         this.props.loadMineItemData(res)
-        //         // console.log('reload');
-        //     })
     }
     render() {
-        let { items } = this.props;
-        items = items.map(i => {
-            // let id = i.getIn(['id']);
-            // let title = i.getIn(['title']);
-            // let isBalanceShow = i.getIn(['isBalanceShow']);
-            // let linkTo = i.getIn(['linkTo']);
-            // let isDotShow = i.getIn(['isDotShow']);
-            // let icon = i.getIn(['icon']);
+        let { items, handleOnClick, balance } = this.props;
+        const myItems:Array<JSX.Element> = items.map((i:MinePageDataItem) => {
 
             const { id, title, isBalanceShow, linkTo, isDotShow, icon } = i;
 
-            const myClassName = classNames({
+            const myClassName:string = classNames({
                 'mine-item-wrapper': true,
                 'hidden': isBalanceShow === 1 ? false : true,
             })
@@ -56,8 +48,11 @@ class Mine extends Component {
                     myClassName={myClassName}
                     isDotShow={isDotShow}
                     id={id}
-                    key={id}
                     icon={icon}
+                    balance={balance}
+
+                    key={id}
+                    handleOnClick={handleOnClick}
                 />
             )
         })
@@ -92,7 +87,8 @@ class Mine extends Component {
                                 </div>
                             </div>
                         </div>
-                        {items.length > 0 && items}
+                        
+                        {myItems.length > 0 && myItems}
                     </div>
                 </div>
             </div>
@@ -103,13 +99,19 @@ class Mine extends Component {
 const mapStateToProps = state => {
     return {
         items: state.getIn(['mineItemDateSource']).toJS(),
+        balance: state.getIn(['account']),
     }
 }
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch:Dispatch<SetIsDotedToFalseAction>) => {
     return {
-        // loadMineItemData: (data) => {
-        //     dispatch(addDataToMinePageActionCreator(data));
-        // }
+        handleOnClick: (id:number, isDotShow:boolean) => {
+            // console.log('id为' + id)
+            if (!isDotShow) {
+                console.log('因为本身不带有Dot，所以阻断了dispatch请求')
+                return;
+            }
+            dispatch(setIsDotedToFalseActionCreator(id));
+        }
     }
 }
 

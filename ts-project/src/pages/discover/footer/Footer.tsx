@@ -1,16 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './footer.styl';
 import { NavLink } from 'react-router-dom';
 
-// import {renderRoutes} from 'react-router-config';
-
-const Footer = props => {
-    // const {route} = props;
-    // return(
-    //     <div className="footer">
-    //         {renderRoutes(route.routes)}
-    //     </div>
-    // )
+const Footer:FC<any> = props => {
     return (
         <div className="footer">
             <div className="footerItem">
@@ -42,4 +34,4 @@ const Footer = props => {
     )
 }
 
-export default Footer;
+export default React.memo(Footer);

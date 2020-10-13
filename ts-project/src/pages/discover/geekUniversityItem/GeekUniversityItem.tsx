@@ -1,8 +1,18 @@
-import React from 'react';
+import React,{FC} from 'react';
 import './geekUniversityItem.styl'
 
-
-function GeekUniversityItem(props) {
+interface Props{
+    id: number;
+    title: string;
+    img: string;
+    lessonDesc: string;
+    teacher: string;
+    teacherDesc: string;
+    phase: number;
+    month: number;
+    day: number;
+}
+const GeekUniversityItem:FC<Props> = (props) => {
     const { title, lessonDesc, teacher, teacherDesc, phase, month, day, img } = props;
     
     return (
@@ -21,4 +31,4 @@ function GeekUniversityItem(props) {
     )
 }
 
-export default GeekUniversityItem;
+export default React.memo(GeekUniversityItem);

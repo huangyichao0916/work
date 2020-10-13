@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import './studyPath.styl';
 import StudyPathItem from './studyPathItem/StudyPathItem';
-// import BScroll from 'better-scroll';
+import { CourseLessonItem } from '../../../../store/types'
 
-class StudyPath extends Component {
+interface Props{
+    courseLessonDataSource: CourseLessonItem[]
+}
+interface StudyPathItemData{
+    [anyProps:string]:number;
+}
+class StudyPath extends Component<Props> {
     render() {
         // console.log('studypatch重新渲染');
         const { courseLessonDataSource } = this.props;
-        const studyPathItemData = courseLessonDataSource.reduce((pre, cur) => {
+        const studyPathItemData:StudyPathItemData = courseLessonDataSource.reduce((pre, cur) => {
             let type = cur.type;
             if (!pre[type]) {
                 pre[type] = 1;
@@ -16,8 +22,9 @@ class StudyPath extends Component {
             }
             return pre;
         }, {})
+
         // console.log(studyPathItemData);//object
-        const finalStudyPathItem = Object.keys(studyPathItemData).map((i,index) => {
+        const finalStudyPathItem:Array<JSX.Element> = Object.keys(studyPathItemData).map((i,index) => {
             return (
                 <StudyPathItem key={index} type={i} total={studyPathItemData[i]}/>
             )
