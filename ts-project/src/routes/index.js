@@ -25,7 +25,6 @@ const RechargeRecord = lazy(() => import('@/pages/rechargeRecord/RechargeRecord'
 const routes = [
     {
         path: '/',
-        // exact: true,
         component: SuspenseComponent(App),
         routes: [
             {
@@ -35,7 +34,6 @@ const routes = [
             },
             {
                 path: '/home',
-                // exact: true,
                 component: SuspenseComponent(Home),
                 routes: [
                     {
@@ -49,7 +47,6 @@ const routes = [
                     },
                     {
                         path: '/home/course',
-                        // exact: true,
                         component: SuspenseComponent(Course),
                         routes: [
                             {
@@ -83,7 +80,6 @@ const routes = [
             },
             {
                 path: '/account',
-                // exact: true,
                 component: SuspenseComponent(Account),
             },
             {

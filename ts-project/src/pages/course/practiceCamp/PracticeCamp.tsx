@@ -4,20 +4,20 @@ import './practiceCamp.styl'
 import axios from 'axios';
 import '@/mock/course-practiceCamp-data';
 import { connect } from 'react-redux';
-import {ThunkDispatch} from 'redux-thunk'
+import { ThunkDispatch } from 'redux-thunk'
 import { addDataToPracticeCampActionCreator, ActionType, practiceCampBuyLessonActionCreator } from '../../../store/action';
 import BScroll from 'better-scroll';
-import {PracticeCampItemInt, StudyItemInt} from '../../../store/types'
+import { PracticeCampItemInt, StudyItemInt } from '../../../store/types'
 import { RootState } from '../../../store/types';
 
 
-interface Props{
-    practiceCampDataSource:Array<PracticeCampItemInt>;
-    loadPracticeCampData:(payload:Array<PracticeCampItemInt>) => void;
-    onHandleJoinCamp:(price:number,id:number,lesson:StudyItemInt) => void;
+interface Props {
+    practiceCampDataSource: Array<PracticeCampItemInt>;
+    loadPracticeCampData: (payload: Array<PracticeCampItemInt>) => void;
+    onHandleJoinCamp: (price: number, id: number, lesson: StudyItemInt) => void;
 }
-const PracticeCamp:FC<Props> = props => {
-    let { practiceCampDataSource, loadPracticeCampData, onHandleJoinCamp} = props;
+const PracticeCamp: FC<Props> = props => {
+    let { practiceCampDataSource, loadPracticeCampData, onHandleJoinCamp } = props;
     useEffect(() => {
         if (practiceCampDataSource.length > 0) {
             // console.log('因为practiceCampDataSource中有数据，所以阻断了axios请求');
@@ -38,7 +38,7 @@ const PracticeCamp:FC<Props> = props => {
         setScroll(bscroll);
     }, [])
 
-    const items:Array<JSX.Element> = practiceCampDataSource.map((item:PracticeCampItemInt, i:number) => {
+    const items: Array<JSX.Element> = practiceCampDataSource.map((item: PracticeCampItemInt, i: number) => {
         const { img, title, name, desc, month, day, price, oldprice, isPurchased } = item;
         return (
             <PracticeCampItem
@@ -62,7 +62,9 @@ const PracticeCamp:FC<Props> = props => {
     return (
         <div className="practiceCamp-wrapper">
             <div className="content">
-                <div className="practiceCamp-swiper-wrapper"></div>
+                <div className="image">
+                    <img src="/imgs/discoverSwiper05.jpg" alt="" />
+                </div>
                 <div className="practiceCampCamp-item-wrapper">
                     <div className="practiceCamp-title">
                         <div className="practiceCamp-main-title">训练营</div>
@@ -82,14 +84,14 @@ const mapStateToProps = state => {
         practiceCampDataSource: state.getIn(['practiceCampDataSource']).toJS(),
     }
 }
-const mapDispatchToProps = (dispatch:ThunkDispatch<RootState,any,ActionType>) => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, any, ActionType>) => {
     return {
-        loadPracticeCampData: (payload:Array<PracticeCampItemInt>) => {
+        loadPracticeCampData: (payload: Array<PracticeCampItemInt>) => {
             dispatch(addDataToPracticeCampActionCreator(payload));
         },
-        onHandleJoinCamp: (price:number,id:number,lesson:StudyItemInt) => {
+        onHandleJoinCamp: (price: number, id: number, lesson: StudyItemInt) => {
             // console.log(payload,id,lesson)
-            dispatch(practiceCampBuyLessonActionCreator(price,id,lesson))
+            dispatch(practiceCampBuyLessonActionCreator(price, id, lesson))
         }
     }
 }

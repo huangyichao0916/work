@@ -36,12 +36,15 @@ const Discover: FC<any> = () => {
         axios.get('mock/discover/practiceCamp')
             .then(res => res.data.practiceCamps)
             .then(res => {
-                // console.log(res)
                 setDiscoverData(res);
             })
     }, [])
 
-    const items: Array<JSX.Element> = discoverData.map((item, index) => <GeekUniverSityItem {...item} key={index} />)
+    const items: Array<JSX.Element> = discoverData.map((item:DiscoverData, index:number) => {
+        return (
+            <GeekUniverSityItem {...item} key={index} />
+        )
+    })
 
     return (
         <div className="discover">
@@ -55,15 +58,14 @@ const Discover: FC<any> = () => {
             <div className="slider-container">
                 <div className="swiper-wrapper">
                     {
-                        swiperImgArr.map((item, i) => {
+                        swiperImgArr.map((item:number, i:number) => {
                             return (
                                 <div className="swiper-slide" key={i}>
-                                    <img src={`imgs/discoverSwiper0${item}.jpg`} alt="图片不见了" width="100%" height="100%" />
+                                    <img src={`/imgs/discoverSwiper0${item}.jpg`} alt="图片不见了" width="100%" height="100%" />
                                 </div>
                             )
                         })
                     }
-
                 </div>
             </div>
             <div className="discover-content">
