@@ -16,7 +16,7 @@ import {
 import { 
     CourseLessonItem,
     RootState,
- } from '@/store/types'
+ } from '@/store/types';
  
 import { ThunkDispatch } from 'redux-thunk';
 import { connect } from 'react-redux';
