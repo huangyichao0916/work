@@ -1,51 +1,86 @@
-import React, { useEffect, FC } from 'react';
-import StudyPath from '@/components/course/lesson/studyPath/StudyPath';
+import React, { useEffect, FC, useCallback } from 'react';
 import './lesson.styl';
 import axios from 'axios';
 import '@/mock/course-lesson-data';
-import { connect } from 'react-redux';
-import { addDataToCourseLessonActionCreator, courseLessonPullDownActionCreator } from '@/store/action';
+
+import StudyPath from '@/components/course/lesson/studyPath/StudyPath';
 import CourseDirection from './courseDirection/CourseDirection';
 import AllCourses from './allCourses/AllCourses';
-import { CourseLessonItem } from '@/store/types'
-import { ThunkDispatch } from 'redux-thunk';
-import { RootState } from '@/store/types'
-import { ActionType } from '@/store/action'
-
 import BScroll from '@/components/baseUI/MyBScroll'
+
+import {
+    addDataToCourseLessonActionCreator,
+    ActionType,
+    refreshCourseLessonActionCreator
+} from '@/store/action';
+import { 
+    CourseLessonItem,
+    RootState,
+ } from '@/store/types'
+ 
+import { ThunkDispatch } from 'redux-thunk';
+import { connect } from 'react-redux';
+
 
 
 interface Props {
-    addDataToCourseLesson: Function;
-    handlePullUp:(...args: any[]) => any;
-    courseLessonDataSource: Array<CourseLessonItem>
+    addDataToCourseLesson: (...args: any[]) => any;
+    refreshCourseLesson: (...args: any[]) => any;
+    courseLessonDataSource: Array<CourseLessonItem>;
 }
 
 const Lesson: FC<Props> = (props) => {
-    const { courseLessonDataSource, handlePullUp, addDataToCourseLesson, } = props;
+    const { courseLessonDataSource, addDataToCourseLesson, refreshCourseLesson } = props;
+    const Len: number = courseLessonDataSource.length;
 
-    function loadCourseLesson():void {
-        axios.get('/mock/course/lesson')
-            .then(res => res.data.courses)
-            .then(res => addDataToCourseLesson(res));
-    }
+    const loadCourseLesson = useCallback(
+        (offset: number) => {
+            axios.get(`/mock/course/lesson?offset=${offset}`)
+                .then(res => {
+                    if (res.data) {
+                        addDataToCourseLesson(res.data)
+                    }
+                    else {
+                        throw new Error("所有数据都展示完毕，无数据");
+                    }
+                })
+                .catch(err => console.log(err))
+        },
+        [],
+    )
+    const reloadCourseLesson = useCallback(
+        (offset: number) => {
+            axios.get(`/mock/course/lesson?offset=${offset}`)
+                .then(res => {
+                    if (res.data) {
+                        console.log(res.data)
+                        refreshCourseLesson(res.data)
+                    }
+                    else {
+                        throw new Error("所有数据都展示完毕，无数据");
+                    }
+                })
+                .catch(err => console.log(err))
+        },
+        [],
+    )
 
     useEffect(() => {
-        if (courseLessonDataSource.length > 0) {
+        if (Len > 0) {
             return;
         }
         console.log('请求courseLesson的数据');
-        loadCourseLesson()
+        reloadCourseLesson(0)
     }, [])
 
 
     return (
         <BScroll
-            pullUp={handlePullUp}
-            pullDown={loadCourseLesson}
+            pullUp={() => loadCourseLesson(Len)}
+            pullDown={() => reloadCourseLesson(Len)}
         >
-            <div className="content">
-                <StudyPath courseLessonDataSource={courseLessonDataSource} />
+            <div className="contentLesson">
+                <StudyPath />
                 <CourseDirection />
                 <AllCourses courseLessonDataSource={courseLessonDataSource} />
             </div>
@@ -63,9 +98,8 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, any, ActionType>)
         addDataToCourseLesson: (payload: Array<CourseLessonItem>) => {
             dispatch(addDataToCourseLessonActionCreator(payload));
         },
-        handlePullUp: () => {
-            // console.log('123');
-            dispatch(courseLessonPullDownActionCreator());
+        refreshCourseLesson: (payload: Array<CourseLessonItem>) => {
+            dispatch(refreshCourseLessonActionCreator(payload));
         }
     }
 }

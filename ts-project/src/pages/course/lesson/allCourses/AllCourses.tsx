@@ -1,40 +1,51 @@
 import React, { FC } from 'react';
 import './allCourses.styl';
 import AllCoursesItem from '@/components/course/lesson/allCoursesItem/AllCoursesItem';
-import { CourseLessonItem } from '@/store/types'
-import { connect } from 'react-redux'
+
+import { 
+    CourseLessonItem,
+    RootState,
+    StudyItemInt,
+ } from '@/store/types'
 import { lessonBuyLessonActionCreator, ActionType } from '@/store/action'
-import { RootState } from '@/store/types'
+
+import { connect } from 'react-redux'
 import { ThunkDispatch } from 'redux-thunk';
 
-export interface Payload {
-    lessonName:string
-    teacherName:string
-    teacherDesc:string;
-}
 interface Props {
     courseLessonDataSource: Array<CourseLessonItem>
-    handleBuyLesson: (price: number, id: number, payload:Payload) => void;
+    handleBuyLesson: (price: number, index: number, payload: StudyItemInt) => void;
 }
 const AllCourses: FC<Props> = props => {
     const { courseLessonDataSource, handleBuyLesson } = props;
     // console.log(courseLessonDataSource);
     const items: Array<JSX.Element> = courseLessonDataSource.map((item: CourseLessonItem, index: number) => {
-        const { img, title, desc, month, day, price, oldprice, isPurchased, name } = item;
+        const {
+            id,
+            title,
+            authorName,
+            authorDesc,
+            avatar,
+            articleCount,
+            totalPeopleLearn,
+            priceMarket,
+            priceSale,
+            haveLearned
+        } = item;
         return (
             <AllCoursesItem
-                img={img}
-                key={index}
-                id={index}
-                lessonName={title}
-                teacherName={name}
-                teacherDesc={desc}
-                month={month}
-                day={day}
-                price={price}
-                oldprice={oldprice}
-                isPurchased={isPurchased}
+                index={index}
+                title={title}
+                authorName={authorName}
+                authorDesc={authorDesc}
+                avatar={avatar}
+                articleCount={articleCount}
+                totalPeopleLearn={totalPeopleLearn}
+                priceMarket={priceMarket}
+                priceSale={priceSale}
+                haveLearned={haveLearned}
 
+                key={id}
                 handleBuyLesson={handleBuyLesson}
             />
         )
@@ -71,8 +82,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, any, ActionType>) => {
     return {
-        handleBuyLesson: (price: number, id: number, payload:Payload) => {
-            dispatch(lessonBuyLessonActionCreator(price, id, payload));
+        handleBuyLesson: (price: number, index: number, payload: StudyItemInt) => {
+            dispatch(lessonBuyLessonActionCreator(price, index, payload));
         }
     }
 }

@@ -1,64 +1,66 @@
 import React,{FC} from 'react';
 import './allCoursesItem.styl';
 import LazyLoad from 'react-lazyload';
-import {Payload} from '@/pages/course/lesson/allCourses/AllCourses'
+import {StudyItemInt} from '@/store/types'
 
 interface Props{
-    day: number;
-    teacherDesc: string;
-    img: string;
-    isPurchased: boolean;
-    month: number;
-    teacherName: string;
-    oldprice: number;
-    price: number;
-    lessonName: string;
-    // type: string;
-    id:number;
+    title:string;
+    authorName:string;
+    authorDesc:string;
+    avatar:string;
+    articleCount:number;
+    totalPeopleLearn:number;
+    priceMarket:number;
+    priceSale:number;
+    haveLearned:boolean;
 
-    handleBuyLesson:(price: number, id: number, payload:Payload) => void;
+    index:number
+    handleBuyLesson:(price: number, index: number, payload:StudyItemInt) => void;
 }
 const AllCoursesItem:FC<Props> = props => {
     const {
-        img,
-        lessonName,
-        teacherName,
-        teacherDesc,
-        month,
-        day,
-        price,
-        oldprice,
-        isPurchased,
-        id,
+        title,
+        authorName,
+        authorDesc,
+        avatar,
+        articleCount,
+        totalPeopleLearn,
+        priceMarket,
+        priceSale,
+        haveLearned,
 
+        index,
         handleBuyLesson,
     } = props;
     return (
         <div className="practiceCamp-item2">
-            <div className="practiceCamp-item-img">
+            {/* <div className="practiceCamp-item-img">
                 <LazyLoad>
-                    <img src={img} alt="图片不见了" />
+                    <img src={avatar} alt="图片不见了" />
                 </LazyLoad>
+            </div> */}
+            <div className="practiceCamp-item-img">
+                <img src={avatar} alt="图片不见了" />
             </div>
             <div className="practiceCamp-item-detail">
-                <div className="practiceCamp-item-name">{lessonName}</div>
+                <div className="practiceCamp-item-name">{title}</div>
                 <div className="practiceCamp-item-teacher">
-                    <div className="practiceCamp-item-teacher-name">{teacherName}</div>
-                    <div className="practiceCamp-item-teacher-desc">{teacherDesc}</div>
+                    <div className="practiceCamp-item-teacher-name">{authorName}</div>
+                    <div className="practiceCamp-item-teacher-desc">{authorDesc}</div>
                 </div>
-                <div className="practiceCamp-item-time">{month}讲｜{day}人已学习</div>
+                <div className="practiceCamp-item-time">{articleCount}讲｜{totalPeopleLearn}人已学习</div>
                 <div className="price-and-join">
                     <div className="practiceCamp-new-first-indent">新人首单</div>
-                    <div className="practiceCamp-item-price">￥{price}</div>
-                    <div className="practiceCamp-item-oldprice">￥{oldprice}</div>
-                    {!isPurchased && <button onClick={() => {
-                        handleBuyLesson(price,id,{
-                            lessonName,
-                            teacherName,
-                            teacherDesc,
+                    <div className="practiceCamp-item-price">￥{priceSale}</div>
+                    <div className="practiceCamp-item-oldprice">￥{priceMarket}</div>
+                    {!haveLearned && <button onClick={() => {
+                        handleBuyLesson(priceSale,index,{
+                            title,
+                            authorName,
+                            authorDesc,
                         });
                     }}>购买</button>}
-                    {isPurchased && <button className="hasBeenPurchased">已购买</button>}
+                    {haveLearned && <button className="hasBeenPurchased">已购买</button>}
                 </div>
             </div>
         </div>

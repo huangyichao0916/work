@@ -17,7 +17,7 @@ const debounce: Function = (func: Function, delay: number):Function => {
 
 const ScrollContainer = styled.div`
   width: 100%;
-  height: 100px;
+  height: 60vh;
 `
 
 interface Pos{
@@ -32,9 +32,9 @@ interface Props {
   bounceTop?: boolean;
   bounceBottom?: boolean;
 
-  onScroll?: () => void;
-  pullUp?: () => void;
-  pullDown?: () => void;
+  onScroll?: (...args:any[]) => void;
+  pullUp?: (...args:any[]) => void;
+  pullDown?: (...args:any[]) => void;
 }
 const Scroll: FC<Props> = (props) => {
   const [bScroll, setBScroll] = useState<BScroll | null>(null);
@@ -64,7 +64,7 @@ const Scroll: FC<Props> = (props) => {
   }, [pullDown]);
 
   useEffect(() => {
-    const scroll = new BScroll(scrollContaninerRef.current, {
+    const scroll:BScroll = new BScroll(scrollContaninerRef.current, {
       scrollX: direction === "horizental",
       scrollY: direction === "vertical",
       probeType: 3,
@@ -74,6 +74,7 @@ const Scroll: FC<Props> = (props) => {
         bottom: bounceBottom
       }
     });
+
     setBScroll(scroll);
     return () => {
       setBScroll(null);

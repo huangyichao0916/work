@@ -17,16 +17,16 @@ export type MineItemState = List<MinePageDataItem>
 
 //CourseLesson
 export interface CourseLessonItem {
-    day: number;
-    desc: string;
-    img: string;
-    isPurchased: boolean;
-    month: number;
-    name: string;
-    oldprice: number;
-    price: number;
-    title: string;
-    type: string;
+    id:number;
+    title:string;
+    authorName:string;
+    authorDesc:string;
+    avatar:string;
+    articleCount:number;
+    totalPeopleLearn:number;
+    priceMarket:number;
+    priceSale:number;
+    haveLearned:boolean;
 }
 export type CourseLessonItemState = List<CourseLessonItem>
 
@@ -48,9 +48,9 @@ export type PracticeCampItemState = List<PracticeCampItemState>
 
 //StudyItem
 export interface StudyItemInt {
-    lessonName: string;
-    teacherDesc: string;
-    teacherName: string;
+    title: string;
+    authorDesc: string;
+    authorName: string;
 }
 export type StudyItemState = List<StudyItemInt>
 

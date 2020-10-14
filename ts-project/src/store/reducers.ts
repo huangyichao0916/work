@@ -40,7 +40,10 @@ const courseLessonItemReducer:Reducer<CourseLessonItemState,ActionType> = (state
         case constants.ADD_DATA_TO_COURSE_LESSON:
             return state.push(...payload);
         case constants.SET_LESSON_TO_BE_PURCHASED:
-            return state.setIn([payload,'isPurchased'],true);
+            return state.setIn([payload,'haveLearned'],true);
+        case constants.REFRESH_COURSE_LESSON:
+            // state.clear();
+            return List(payload)
         default:
             return state;
     }
@@ -51,7 +54,7 @@ const practiceCampItemReducer:Reducer<PracticeCampItemState,ActionType> = (state
     const {type , payload} = action;
     switch (type) {
         case constants.ADD_DATA_TO_PRACTICE_CAMP:
-            return List(payload);
+            return List(payload)
         case constants.SET_PRACTICE_CAMP_TO_BE_PURCHASED:
             return state.setIn([payload,'isPurchased'],true)
         default:

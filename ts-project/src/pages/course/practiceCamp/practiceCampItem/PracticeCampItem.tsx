@@ -49,9 +49,9 @@ const PracticeCampItem:FC<Props> = props => {
                     <div className="practiceCamp-item-oldprice">￥{oldprice}</div>
                     {!isPurchased && <button onClick={() => {
                         onHandleJoinCamp(price,id,{
-                            lessonName,
-                            teacherName,
-                            teacherDesc,
+                            title: lessonName,
+                            authorName:teacherName,
+                            authorDesc:teacherDesc,
                         });
                     }}>立即报名</button>}
                     {isPurchased && <button className="hasBeenPurchased">已报名</button>}

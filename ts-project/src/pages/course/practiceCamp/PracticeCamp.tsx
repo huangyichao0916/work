@@ -5,10 +5,10 @@ import axios from 'axios';
 import '@/mock/course-practiceCamp-data';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk'
-import { addDataToPracticeCampActionCreator, ActionType, practiceCampBuyLessonActionCreator } from '../../../store/action';
+import { addDataToPracticeCampActionCreator, ActionType, practiceCampBuyLessonActionCreator } from '@/store/action';
 import BScroll from 'better-scroll';
-import { PracticeCampItemInt, StudyItemInt } from '../../../store/types'
-import { RootState } from '../../../store/types';
+import { PracticeCampItemInt, StudyItemInt } from '@/store/types'
+import { RootState } from '@/store/types';
 
 
 interface Props {
