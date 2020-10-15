@@ -36,7 +36,6 @@ const mineItemReducer:Reducer<MineItemState,ActionType> = (state = defaultMineIt
 const defaultCourseLessonItemState:CourseLessonItemState = List([]);
 const courseLessonItemReducer:Reducer<CourseLessonItemState,ActionType> = (state = defaultCourseLessonItemState , action) => {
     const {type,payload} = action;
-    console.log(action)
     switch (type) {
         case constants.ADD_DATA_TO_COURSE_LESSON:
             return state.push(...payload);

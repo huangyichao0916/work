@@ -11,6 +11,11 @@ const data = Mock.mock(urlReg,function(option){
         return null;
     }
 
+    return {
+        data: courseLessons.slice(offset,offset + 10),
+        offset: offset + 10
+    };
+
     return courseLessons.slice(offset,offset + 10);
 })
 

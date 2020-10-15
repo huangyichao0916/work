@@ -45,7 +45,6 @@ interface Props {
   pullDown?: (...args:any[]) => void;
 }
 const Scroll: FC<Props> = (props) => {
-  console.log('scroll')
   const [bScroll, setBScroll] = useState<BScroll | null>(null);
 
   const scrollContaninerRef = useRef();

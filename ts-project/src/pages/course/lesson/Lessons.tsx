@@ -1,4 +1,4 @@
-import React, { useEffect, FC, useCallback, Dispatch } from 'react';
+import React, { useEffect, FC, useCallback, Dispatch, useState } from 'react';
 import './lesson.styl';
 import axios from 'axios';
 import '@/mock/course-lesson-data';
@@ -32,13 +32,16 @@ interface Props {
 const Lesson: FC<Props> = (props) => {
     const { courseLessonDataSource, addDataToCourseLesson, refreshCourseLesson } = props;
     const Len: number = courseLessonDataSource.length;
+    const [offset, setOffset] = useState<number>(0)
+    // console.log('offset='+offset)
 
     const loadCourseLesson = useCallback(
         (offset: number) => {
             axios.get(`/mock/course/lesson?offset=${offset}`)
                 .then(res => {
                     if (res.data) {
-                        addDataToCourseLesson(res.data)
+                        setOffset(res.data.offset)
+                        addDataToCourseLesson(res.data.data)
                     }
                     else {
                         throw new Error("所有数据都展示完毕，无数据");
@@ -53,8 +56,9 @@ const Lesson: FC<Props> = (props) => {
             axios.get(`/mock/course/lesson?offset=${offset}`)
                 .then(res => {
                     if (res.data) {
-                        console.log(res.data)
-                        refreshCourseLesson(res.data)
+                        setOffset(res.data.offset)
+                        console.log(res.data.offset)
+                        refreshCourseLesson(res.data.data)
                     }
                     else {
                         throw new Error("所有数据都展示完毕，无数据");
@@ -70,14 +74,14 @@ const Lesson: FC<Props> = (props) => {
             return;
         }
         console.log('请求courseLesson的数据');
-        loadCourseLesson(0)
+        reloadCourseLesson(0)
     }, [])
 
 
     return (
         <BScroll
-            pullUp={() => loadCourseLesson(Len)}
-            pullDown={() => reloadCourseLesson(Len)}
+            pullUp={() => loadCourseLesson(offset)}
+            pullDown={() => reloadCourseLesson(offset)}
         >
             <div className="contentLesson">
                 <StudyPath />
@@ -93,7 +97,6 @@ const mapStateToProps = state => {
         courseLessonDataSource: state.getIn(['courseLessonDataSource']).toJS(),
     }
 }
-// const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, any, ActionType>) => {
 const mapDispatchToProps = (dispatch: Dispatch<AddDataToCourseLessonAction | RefreshCourseLessonAction>) => {
     return {
         addDataToCourseLesson: (payload: Array<CourseLessonItem>) => {
