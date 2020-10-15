@@ -1,18 +1,12 @@
 import React, { FC } from 'react';
-import './practiceCampItem.styl'
-import { StudyItemInt } from '@/store/types';
+import './practiceCampItem.styl';
 
-interface Props {
-    id: number;
-    title: string;
-    authorName: string;
-    authorDesc: string;
-    avatar: string;
-    priceMarket: number;
-    priceSale: number;
-    haveLearned: boolean;
-    beginDate: string;
+import { 
+    StudyItemInt,
+    PracticeCampItemInt,
+ } from '@/store/types';
 
+interface Props extends PracticeCampItemInt {
     index: number;
     onHandleJoinCamp: (price: number, id: number, lesson: StudyItemInt) => void;
 }

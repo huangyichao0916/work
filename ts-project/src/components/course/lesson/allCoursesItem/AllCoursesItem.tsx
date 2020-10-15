@@ -1,19 +1,12 @@
 import React,{FC} from 'react';
 import './allCoursesItem.styl';
-import LazyLoad from 'react-lazyload';
-import {StudyItemInt} from '@/store/types'
 
-interface Props{
-    title:string;
-    authorName:string;
-    authorDesc:string;
-    avatar:string;
-    articleCount:number;
-    totalPeopleLearn:number;
-    priceMarket:number;
-    priceSale:number;
-    haveLearned:boolean;
+import {
+    StudyItemInt,
+    CourseLessonItem
+} from '@/store/types'
 
+interface Props extends CourseLessonItem{
     index:number
     handleBuyLesson:(price: number, index: number, payload:StudyItemInt) => void;
 }

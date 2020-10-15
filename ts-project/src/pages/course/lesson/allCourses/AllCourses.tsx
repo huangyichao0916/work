@@ -18,34 +18,13 @@ interface Props {
 }
 const AllCourses: FC<Props> = props => {
     const { courseLessonDataSource, handleBuyLesson } = props;
-    // console.log(courseLessonDataSource);
     const items: Array<JSX.Element> = courseLessonDataSource.map((item: CourseLessonItem, index: number) => {
-        const {
-            id,
-            title,
-            authorName,
-            authorDesc,
-            avatar,
-            articleCount,
-            totalPeopleLearn,
-            priceMarket,
-            priceSale,
-            haveLearned
-        } = item;
         return (
             <AllCoursesItem
-                index={index}
-                title={title}
-                authorName={authorName}
-                authorDesc={authorDesc}
-                avatar={avatar}
-                articleCount={articleCount}
-                totalPeopleLearn={totalPeopleLearn}
-                priceMarket={priceMarket}
-                priceSale={priceSale}
-                haveLearned={haveLearned}
+                {...item}
 
-                key={id}
+                index={index}
+                key={item.id}
                 handleBuyLesson={handleBuyLesson}
             />
         )

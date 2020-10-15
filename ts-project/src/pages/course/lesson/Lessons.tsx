@@ -42,6 +42,7 @@ const Lesson: FC<Props> = (props) => {
                     if (res.data) {
                         setOffset(res.data.offset)
                         addDataToCourseLesson(res.data.data)
+                        console.log('load success')
                     }
                     else {
                         throw new Error("所有数据都展示完毕，无数据");
@@ -52,13 +53,14 @@ const Lesson: FC<Props> = (props) => {
         [],
     )
     const reloadCourseLesson = useCallback(
+
         (offset: number) => {
             axios.get(`/mock/course/lesson?offset=${offset}`)
                 .then(res => {
                     if (res.data) {
                         setOffset(res.data.offset)
-                        console.log(res.data.offset)
                         refreshCourseLesson(res.data.data)
+                        console.log('refresh success')
                     }
                     else {
                         throw new Error("所有数据都展示完毕，无数据");
@@ -73,8 +75,7 @@ const Lesson: FC<Props> = (props) => {
         if (Len > 0) {
             return;
         }
-        console.log('请求courseLesson的数据');
-        reloadCourseLesson(0)
+        loadCourseLesson(0)
     }, [])
 
 

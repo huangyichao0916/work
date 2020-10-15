@@ -31,6 +31,9 @@ const Discover: FC<any> = () => {
             },
         })
         setSw(newSw)
+        return() => {
+            setSw(null)
+        }
     }, [])
     useEffect(() => {
         axios.get('mock/discover/practiceCamp')
