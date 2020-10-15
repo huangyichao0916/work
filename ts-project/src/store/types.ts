@@ -32,17 +32,15 @@ export type CourseLessonItemState = List<CourseLessonItem>
 
 //PracticeCamp
 export interface PracticeCampItemInt {
-    day: number;
-    desc: string;
-    id: number;
-    img: string;
-    isPurchased: boolean;
-    itemType: string;
-    month: number;
-    name: string;
-    oldprice: number;
-    price: number;
-    title: string;
+    id:number;
+    title:string;
+    authorName:string;
+    authorDesc:string;
+    avatar:string;
+    priceMarket:number;
+    priceSale:number;
+    haveLearned:boolean;
+    beginDate:string;
 }
 export type PracticeCampItemState = List<PracticeCampItemState>
 

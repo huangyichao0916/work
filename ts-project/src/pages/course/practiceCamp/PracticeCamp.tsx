@@ -2,13 +2,23 @@ import React, { useEffect, useState, FC } from 'react';
 import PracticeCampItem from './practiceCampItem/PracticeCampItem'
 import './practiceCamp.styl'
 import axios from 'axios';
+import BScroll from 'better-scroll';
 import '@/mock/course-practiceCamp-data';
+
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk'
-import { addDataToPracticeCampActionCreator, ActionType, practiceCampBuyLessonActionCreator } from '@/store/action';
-import BScroll from 'better-scroll';
-import { PracticeCampItemInt, StudyItemInt } from '@/store/types'
-import { RootState } from '@/store/types';
+
+
+import {
+    addDataToPracticeCampActionCreator,
+    ActionType,
+    practiceCampBuyLessonActionCreator
+} from '@/store/action';
+import {
+    PracticeCampItemInt,
+    StudyItemInt,
+    RootState,
+} from '@/store/types'
 
 
 interface Props {
@@ -24,7 +34,7 @@ const PracticeCamp: FC<Props> = props => {
             return;
         }
         axios.get('mock/course/practiceCamp')
-            .then(res => res.data.practiceCamps)
+            .then(res => res.data)
             .then(res => { loadPracticeCampData(res) })
     }, [])
 
@@ -42,21 +52,11 @@ const PracticeCamp: FC<Props> = props => {
     }, [])
 
     const items: Array<JSX.Element> = practiceCampDataSource.map((item: PracticeCampItemInt, i: number) => {
-        const { img, title, name, desc, month, day, price, oldprice, isPurchased } = item;
         return (
             <PracticeCampItem
-                img={img}
-                id={i}
-                lessonName={title}
-                teacherName={name}
-                teacherDesc={desc}
-                month={month}
-                day={day}
-                price={price}
-                oldprice={oldprice}
-                isPurchased={isPurchased}
-
-                key={i}
+                {...item}
+                index={i}
+                key={item.id}
 
                 onHandleJoinCamp={onHandleJoinCamp}
             />
@@ -92,9 +92,9 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, any, ActionType>)
         loadPracticeCampData: (payload: Array<PracticeCampItemInt>) => {
             dispatch(addDataToPracticeCampActionCreator(payload));
         },
-        onHandleJoinCamp: (price: number, id: number, lesson: StudyItemInt) => {
+        onHandleJoinCamp: (price: number, index: number, lesson: StudyItemInt) => {
             // console.log(payload,id,lesson)
-            dispatch(practiceCampBuyLessonActionCreator(price, id, lesson))
+            dispatch(practiceCampBuyLessonActionCreator(price, index, lesson))
         }
     }
 }

@@ -55,7 +55,7 @@ const practiceCampItemReducer:Reducer<PracticeCampItemState,ActionType> = (state
         case constants.ADD_DATA_TO_PRACTICE_CAMP:
             return List(payload)
         case constants.SET_PRACTICE_CAMP_TO_BE_PURCHASED:
-            return state.setIn([payload,'isPurchased'],true)
+            return state.setIn([payload,'haveLearned'],true)
         default:
             return state;
     }

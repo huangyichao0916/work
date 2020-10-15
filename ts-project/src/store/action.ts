@@ -171,13 +171,13 @@ export type ActionType = AddRecordToRechargeRecordAction | BuyLessonAction | Rec
 export type ThunkActionType = ThunkAction<any,RootState,any,ActionType>
 
 // practiceCamp购买课程相关的action creator 
-export const practiceCampBuyLessonActionCreator = (price:number, id:number, lesson:StudyItemInt):ThunkActionType => {
+export const practiceCampBuyLessonActionCreator = (price:number, index:number, lesson:StudyItemInt):ThunkActionType => {
     return (dispatch) => {
         dispatch(buyLessonActionCreator(price));
         dispatch(setIsDotedToTrueActionCreator(0));
         dispatch(setIsDotedToTrueActionCreator(1));
         dispatch(setIsDotedToTrueActionCreator(2));
-        dispatch(setPracticeCampToBePurchasedActionCreator(id));
+        dispatch(setPracticeCampToBePurchasedActionCreator(index));
         dispatch(addPurchasedLessonsToStudyPageActionCreator(lesson))
     }
 }
