@@ -9,30 +9,28 @@ import AllCourses from './allCourses/AllCourses';
 import BScroll from '@/components/baseUI/MyBScroll'
 
 import {
-    // ActionType,
     addDataToCourseLessonActionCreator,
-    // refreshCourseLessonActionCreator,
+    refreshCourseLessonActionCreator,
     AddDataToCourseLessonAction,
-    // RefreshCourseLessonAction,
+    RefreshCourseLessonAction,
 } from '@/store/action';
 import { 
     CourseLessonItem,
-    // RootState,
  } from '@/store/types';
  
-// import { ThunkDispatch } from 'redux-thunk';
+
 import { connect } from 'react-redux';
 
 
 
 interface Props {
     addDataToCourseLesson: (...args: any[]) => any;
-    // refreshCourseLesson: (...args: any[]) => any;
+    refreshCourseLesson: (...args: any[]) => any;
     courseLessonDataSource: Array<CourseLessonItem>;
 }
 
 const Lesson: FC<Props> = (props) => {
-    const { courseLessonDataSource, addDataToCourseLesson } = props;
+    const { courseLessonDataSource, addDataToCourseLesson, refreshCourseLesson } = props;
     const Len: number = courseLessonDataSource.length;
 
     const loadCourseLesson = useCallback(
@@ -50,22 +48,22 @@ const Lesson: FC<Props> = (props) => {
         },
         [],
     )
-    // const reloadCourseLesson = useCallback(
-    //     (offset: number) => {
-    //         axios.get(`/mock/course/lesson?offset=${offset}`)
-    //             .then(res => {
-    //                 if (res.data) {
-    //                     console.log(res.data)
-    //                     refreshCourseLesson(res.data)
-    //                 }
-    //                 else {
-    //                     throw new Error("所有数据都展示完毕，无数据");
-    //                 }
-    //             })
-    //             .catch(err => console.log(err))
-    //     },
-    //     [],
-    // )
+    const reloadCourseLesson = useCallback(
+        (offset: number) => {
+            axios.get(`/mock/course/lesson?offset=${offset}`)
+                .then(res => {
+                    if (res.data) {
+                        console.log(res.data)
+                        refreshCourseLesson(res.data)
+                    }
+                    else {
+                        throw new Error("所有数据都展示完毕，无数据");
+                    }
+                })
+                .catch(err => console.log(err))
+        },
+        [],
+    )
 
     useEffect(() => {
         if (Len > 0) {
@@ -79,7 +77,7 @@ const Lesson: FC<Props> = (props) => {
     return (
         <BScroll
             pullUp={() => loadCourseLesson(Len)}
-            // pullDown={() => reloadCourseLesson(Len)}
+            pullDown={() => reloadCourseLesson(Len)}
         >
             <div className="contentLesson">
                 <StudyPath />
@@ -96,14 +94,14 @@ const mapStateToProps = state => {
     }
 }
 // const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, any, ActionType>) => {
-const mapDispatchToProps = (dispatch: Dispatch<AddDataToCourseLessonAction>) => {
+const mapDispatchToProps = (dispatch: Dispatch<AddDataToCourseLessonAction | RefreshCourseLessonAction>) => {
     return {
         addDataToCourseLesson: (payload: Array<CourseLessonItem>) => {
             dispatch(addDataToCourseLessonActionCreator(payload));
         },
-        // refreshCourseLesson: (payload: Array<CourseLessonItem>) => {
-        //     dispatch(refreshCourseLessonActionCreator(payload));
-        // }
+        refreshCourseLesson: (payload: Array<CourseLessonItem>) => {
+            dispatch(refreshCourseLessonActionCreator(payload));
+        }
     }
 }
 

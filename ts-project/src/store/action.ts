@@ -1,4 +1,3 @@
-import axios from 'axios';
 import '@/mock/course-lesson-data';
 import * as constants from './constants'
 import {ThunkAction} from 'redux-thunk'
@@ -140,16 +139,16 @@ export const addDataToCourseLessonActionCreator = (payload:Array<CourseLessonIte
         payload
     }
 }
-// export interface RefreshCourseLessonAction{
-//     type: constants.REFRESH_COURSE_LESSON,
-//     [anyProps: string]: any;
-// }
-// export const refreshCourseLessonActionCreator = (payload:Array<CourseLessonItem>):RefreshCourseLessonAction => {
-//     return {
-//         type: constants.REFRESH_COURSE_LESSON,
-//         payload
-//     }
-// }
+export interface RefreshCourseLessonAction{
+    type: constants.REFRESH_COURSE_LESSON,
+    [anyProps: string]: any;
+}
+export const refreshCourseLessonActionCreator = (payload:Array<CourseLessonItem>):RefreshCourseLessonAction => {
+    return {
+        type: constants.REFRESH_COURSE_LESSON,
+        payload
+    }
+}
 export interface SetLessonToBePurchasedAction{
     type: constants.SET_LESSON_TO_BE_PURCHASED,
     [anyProps: string]: any;
@@ -165,7 +164,8 @@ export const setLessonToBePurchasedActionCreator = (payload:number):SetLessonToB
 //声明Action的联合类型
 export type ActionType = AddRecordToRechargeRecordAction | BuyLessonAction | RechargeAction |
     AddDataToMinePageAction | SetIsDotedToTrueAction | SetIsDotedToFalseAction | AddPurchasedLessonsToStudyPageAction |
-    AddDataToPracticeCampAction | SetPracticeCampToBePurchasedAction | AddDataToCourseLessonAction | SetLessonToBePurchasedAction
+    AddDataToPracticeCampAction | SetPracticeCampToBePurchasedAction | AddDataToCourseLessonAction | 
+    SetLessonToBePurchasedAction | RefreshCourseLessonAction
 
 //声明ThunkAction
 export type ThunkActionType = ThunkAction<any,RootState,any,ActionType>
