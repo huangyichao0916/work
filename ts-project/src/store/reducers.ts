@@ -41,9 +41,8 @@ const courseLessonItemReducer:Reducer<CourseLessonItemState,ActionType> = (state
             return state.push(...payload);
         case constants.SET_LESSON_TO_BE_PURCHASED:
             return state.setIn([payload,'haveLearned'],true);
-        case constants.REFRESH_COURSE_LESSON:
-            // state.clear();
-            return List(payload)
+        // case constants.REFRESH_COURSE_LESSON:
+        //     return List(payload)
         default:
             return state;
     }

@@ -15,6 +15,14 @@ const debounce: Function = (func: Function, delay: number):Function => {
   };
 };
 
+// const LoadingComp:FC<any> = (props) => {
+//   return (
+//     <div className="loading-component">
+//       loading
+//     </div>
+//   )
+// }
+
 const ScrollContainer = styled.div`
   width: 100%;
   height: 60vh;
@@ -97,9 +105,9 @@ const Scroll: FC<Props> = (props) => {
         pullUpDebounce();
       }
     };
-    bScroll.on('scrollEnd', handlePullUp);
+    bScroll.on('touchEnd', handlePullUp);
     return () => {
-      bScroll.off('scrollEnd', handlePullUp);
+      bScroll.off('touchEnd', handlePullUp);
     }
   }, [pullUp, pullUpDebounce, bScroll]);
 

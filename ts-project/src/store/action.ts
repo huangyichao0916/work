@@ -140,16 +140,16 @@ export const addDataToCourseLessonActionCreator = (payload:Array<CourseLessonIte
         payload
     }
 }
-export interface RefreshCourseLessonAction{
-    type: constants.REFRESH_COURSE_LESSON,
-    [anyProps: string]: any;
-}
-export const refreshCourseLessonActionCreator = (payload:Array<CourseLessonItem>):RefreshCourseLessonAction => {
-    return {
-        type: constants.REFRESH_COURSE_LESSON,
-        payload
-    }
-}
+// export interface RefreshCourseLessonAction{
+//     type: constants.REFRESH_COURSE_LESSON,
+//     [anyProps: string]: any;
+// }
+// export const refreshCourseLessonActionCreator = (payload:Array<CourseLessonItem>):RefreshCourseLessonAction => {
+//     return {
+//         type: constants.REFRESH_COURSE_LESSON,
+//         payload
+//     }
+// }
 export interface SetLessonToBePurchasedAction{
     type: constants.SET_LESSON_TO_BE_PURCHASED,
     [anyProps: string]: any;
