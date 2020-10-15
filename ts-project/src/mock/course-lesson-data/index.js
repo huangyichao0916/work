@@ -16,7 +16,7 @@ const data = Mock.mock(urlReg,function(option){
         offset: offset + 10
     };
 
-    return courseLessons.slice(offset,offset + 10);
+    // return courseLessons.slice(offset,offset + 10);
 })
 
 export default data;

@@ -5,7 +5,7 @@ import Swiper from "swiper"
 import "swiper/css/swiper.min.css";
 import GeekUniverSityItem from './geekUniversityItem/GeekUniversityItem'
 import axios from 'axios';
-import '@/mock/discover-practiceCamp-data.js'
+import '@/mock/discover-practiceCamp-data'
 
 interface DiscoverData {
     id: number;
