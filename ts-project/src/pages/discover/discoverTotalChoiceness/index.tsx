@@ -1,6 +1,7 @@
-import React, { FC, useCallback, useState, useEffect } from 'react'
-import axios from 'axios'
-import '@/mock/discover-total-choiceness-data'
+import React, { FC, useCallback, useState, useEffect } from 'react';
+import axios from 'axios';
+import '@/mock/discover-total-choiceness-data';
+import { Link } from 'react-router-dom';
 
 import DiscoverTotalChoicenessItem from './discoverTotalChoicenessItem'
 
@@ -45,7 +46,11 @@ const DiscoverTotalChoiceness: FC<any> = props => {
             <div className="geek-university-header">
                 <span></span>
                 <div className="geek-university-title">精选合辑</div>
-                <div className="view-more">查看更多</div>
+                <Link to="/allDiscoverTotalChoiceness">
+                    <div className="view-more">
+                        查看更多
+                    </div>
+                </Link>
             </div>
             <div className="geek-university-wrapper">
                 {

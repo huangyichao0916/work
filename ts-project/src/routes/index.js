@@ -20,6 +20,8 @@ const Lesson = lazy(() => import('@/pages/course/lesson/Lessons'))
 const LessonEveryday = lazy(() => import('@/pages/course/lessonEveryday/LessonEveryday'))
 const PracticeCamp = lazy(() => import('@/pages/course/practiceCamp/PracticeCamp'))
 const RechargeRecord = lazy(() => import('@/pages/rechargeRecord/RechargeRecord'))
+const AllDiscoverLessonEveryday = lazy(() => import('@/pages/allDiscoverLessonEveryday'))
+const allDiscoverTotalChoiceness = lazy(() => import('@/pages/allDiscoverTotalChoiceness'))
 
 
 const routes = [
@@ -85,8 +87,15 @@ const routes = [
             {
                 path: '/rechargeRecord',
                 component: SuspenseComponent(RechargeRecord),
+            },
+            {
+                path: '/allDiscoverLessonEveryday',
+                component: SuspenseComponent(AllDiscoverLessonEveryday),
+            },
+            {
+                path: '/allDiscoverTotalChoiceness',
+                component: SuspenseComponent(allDiscoverTotalChoiceness),
             }
-
         ]
     },
 

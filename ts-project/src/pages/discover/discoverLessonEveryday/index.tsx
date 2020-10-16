@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import '@/mock/discover-leeson-everyday-data'
+import { Link } from 'react-router-dom'
 
 import DiscoverLessonEverydayItem from './discoverLessonEverydayItem'
 
@@ -46,7 +47,11 @@ const DiscoverLessonEveryday: FC<any> = props => {
             <div className="geek-university-header">
                 <span></span>
                 <div className="geek-university-title">每日一课</div>
-                <div className="view-more">查看更多</div>
+                <Link to="/allDiscoverLessonEveryday">
+                    <div className="view-more">
+                        查看更多
+                    </div>
+                </Link>
             </div>
             <div className="geek-university-wrapper">
                 {
