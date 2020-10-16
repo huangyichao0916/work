@@ -1,5 +1,5 @@
 import React, { useEffect, useState, FC } from 'react';
-import { Header } from '../study/studyHeader.style'
+import Header from '@/baseUI/header'
 import './discover.styl'
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css";
@@ -35,10 +35,7 @@ const Discover: FC<any> = () => {
 
     return (
         <div className="discover">
-            <Header>
-                <span className="discover-header-title">发现</span>
-                <span className="icon iconfont">&#xe645;</span>
-            </Header>
+            <Header leftTitle={"发现"} rightTitle={"&#xe645;"}/>
             <div className="discover-input-search">
                 <input className="icon iconfont" type="text" placeholder="&#xe606; 搜索课程、课程内容、每日一课等" />
             </div>

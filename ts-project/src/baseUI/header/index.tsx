@@ -13,7 +13,7 @@ interface Props {
 const judgeIsItIconfont: RegExp = /^&#.+;$/;
 class Header extends Component<Props>{
     render() {
-        let {
+        const {
             isGoBackNeeded = false,
             leftTitle,
             leftTitleURL,
@@ -21,7 +21,6 @@ class Header extends Component<Props>{
             rightTitle,
             rightTitleURL
         } = this.props;
-
 
         //左侧的title的判断
         let divLeft: JSX.Element;
