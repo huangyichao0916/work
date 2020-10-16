@@ -3,24 +3,13 @@ import { Header } from '../study/studyHeader.style'
 import './discover.styl'
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css";
-import GeekUniverSityItem from './geekUniversityItem/GeekUniversityItem'
-import axios from 'axios';
-import '@/mock/discover-practiceCamp-data'
+import '@/mock/discover-leeson-everyday-data'
 
-interface DiscoverData {
-    id: number;
-    title: string;
-    img: string;
-    lessonDesc: string;
-    teacher: string;
-    teacherDesc: string;
-    phase: number;
-    month: number;
-    day: number;
-}
+import DiscoverLessonEveryday from './discoverLessonEveryday';
+import DiscoverTotalChoiceness from './discoverTotalChoiceness'
+
 const Discover: FC<any> = () => {
     const swiperImgArr: number[] = [1, 2, 3, 4, 5];
-    const [discoverData, setDiscoverData] = useState<DiscoverData[]>([]);
 
     const [sw, setSw] = useState<null | Swiper>(null)
     useEffect(() => {
@@ -31,21 +20,16 @@ const Discover: FC<any> = () => {
             },
         })
         setSw(newSw)
-        return() => {
+        return () => {
             setSw(null)
         }
     }, [])
-    useEffect(() => {
-        axios.get('mock/discover/practiceCamp')
-            .then(res => res.data.practiceCamps)
-            .then(res => {
-                setDiscoverData(res);
-            })
-    }, [])
 
-    const items: Array<JSX.Element> = discoverData.map((item:DiscoverData, index:number) => {
+    const images: Array<JSX.Element> = swiperImgArr.map((item: number, i: number) => {
         return (
-            <GeekUniverSityItem {...item} key={index} />
+            <div className="swiper-slide" key={i}>
+                <img src={`/imgs/discoverSwiper0${item}.jpg`} alt="图片不见了" width="100%" height="100%" />
+            </div>
         )
     })
 
@@ -61,13 +45,7 @@ const Discover: FC<any> = () => {
             <div className="slider-container">
                 <div className="swiper-wrapper">
                     {
-                        swiperImgArr.map((item:number, i:number) => {
-                            return (
-                                <div className="swiper-slide" key={i}>
-                                    <img src={`/imgs/discoverSwiper0${item}.jpg`} alt="图片不见了" width="100%" height="100%" />
-                                </div>
-                            )
-                        })
+                        images
                     }
                 </div>
             </div>
@@ -75,7 +53,7 @@ const Discover: FC<any> = () => {
                 <div className="maitaozheshuo">
                     <div className="maitaozheshuo-title">
                         <div className="maitaozheshuo-img">
-                            <img src="" alt="" />
+                            <img src="https://static001.geekbang.org/resource/image/37/3b/378b7d1867d83e1ab405ee7e052e843b.png" alt="" />
                         </div>
                         <div className="maitaozheshuo-name">
                             卖桃者说
@@ -87,30 +65,8 @@ const Discover: FC<any> = () => {
                         第320期 | 你离一个优秀架构师还差几步?
                     </div>
                 </div>
-                <div className="geek-university">
-                    <div className="geek-university-header">
-                        <span></span>
-                        <div className="geek-university-title">极客大学</div>
-                        <div className="view-more">查看更多</div>
-                    </div>
-                    <div className="geek-university-wrapper">
-                        {items}
-                    </div>
-                </div>
-                <div className="geek-university">
-                    <div className="geek-university-header">
-                        <span></span>
-                        <div className="geek-university-title">每日一课</div>
-                        <div className="view-more">查看更多</div>
-                    </div>
-                    <div className="geek-university-wrapper">
-                        {items}
-                    </div>
-                    <div className="change-for-other">
-                        <span className="icon iconfont">&#xe638; 换一换</span>
-                    </div>
-
-                </div>
+                <DiscoverLessonEveryday />
+                <DiscoverTotalChoiceness />
             </div>
         </div>
     );
