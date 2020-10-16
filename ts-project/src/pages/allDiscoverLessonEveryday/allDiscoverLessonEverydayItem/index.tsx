@@ -10,7 +10,7 @@ class AllDiscoverLessonEverydayItem extends Component<Props,any>{
 
         return(
             <div className="allDiscoverLessonEverydayItem">
-
+                123
             </div>
         )
     }

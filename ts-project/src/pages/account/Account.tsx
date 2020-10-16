@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import accountImg from '@/assets/imgs/account.png'
-import './account.styl'
-import RechargeItem from './rechargeItem/RechargeItem'
-import classNames from 'classnames'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { rechargeAndRecordActionCreator } from '@/store/action';
-import { ThunkDispatch } from 'redux-thunk'
-import { RootState } from '@/store/types'
-import { ActionType } from '@/store/action'
+import accountImg from '@/assets/imgs/account.png';
+import './account.styl';
+import RechargeItem from './rechargeItem/RechargeItem';
+import classNames from 'classnames';
+
+import { connect } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
+
+import { RootState } from '@/store/types';
+import { 
+    ActionType,
+    rechargeAndRecordActionCreator,
+ } from '@/store/action';
 
 interface Props {
     balance: number;
@@ -27,7 +31,6 @@ class Account extends Component<Props, State> {
         window.history.back();
     }
     handleHighlight = (key: number): any => {
-        // console.log(this.state)
         this.setState({
             highlightKey: key
         })

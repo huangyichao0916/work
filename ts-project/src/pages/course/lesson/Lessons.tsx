@@ -6,7 +6,7 @@ import '@/mock/course-lesson-data';
 import StudyPath from '@/components/course/lesson/studyPath/StudyPath';
 import CourseDirection from './courseDirection/CourseDirection';
 import AllCourses from './allCourses/AllCourses';
-import BScroll from '@/components/baseUI/MyBScroll'
+import BScroll from '@/baseUI/MyBScroll'
 
 import {
     addDataToCourseLessonActionCreator,
