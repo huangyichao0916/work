@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import './study.styl'
 import { Header } from './studyHeader.style'
-import { connect } from 'react-redux'
-import StudyItem from './studyItem'
+import StudyItem from '@/components/study/studyItem'
 import {Link} from 'react-router-dom';
+
+import { connect } from 'react-redux'
+
 import {StudyItemInt} from '@/store/types'
 
 interface Props{

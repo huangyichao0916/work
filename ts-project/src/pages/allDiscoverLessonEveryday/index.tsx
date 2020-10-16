@@ -3,7 +3,7 @@ import { DiscoverLessonEverydayItemInt } from '@/pages/discover/discoverLessonEv
 import './allDiscoverLessonEveryday.styl';
 import axios from 'axios';
 import '@/mock/discover-leeson-everyday-data'
-import AllDiscoverLessonEverydayItem from './allDiscoverLessonEverydayItem'
+import AllDiscoverLessonEverydayItem from '../../components/allDiscoverLessonEveryday/allDiscoverLessonEverydayItem'
 import Header from '@/baseUI/header'
 
 interface State {

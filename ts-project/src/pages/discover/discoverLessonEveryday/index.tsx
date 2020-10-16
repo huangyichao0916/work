@@ -3,7 +3,7 @@ import axios from 'axios';
 import '@/mock/discover-leeson-everyday-data'
 import { Link } from 'react-router-dom'
 
-import DiscoverLessonEverydayItem from './discoverLessonEverydayItem'
+import DiscoverLessonEverydayItem from '@/components/discover/discoverLessonEveryday/discoverLessonEverydayItem'
 
 export interface DiscoverLessonEverydayItemInt {
     id: number;

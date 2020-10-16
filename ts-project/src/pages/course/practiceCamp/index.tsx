@@ -1,5 +1,5 @@
 import React, { useEffect, useState, FC } from 'react';
-import PracticeCampItem from './practiceCampItem'
+import PracticeCampItem from '../../../components/course/practiceCamp/practiceCampItem'
 import './practiceCamp.styl'
 import axios from 'axios';
 import BScroll from 'better-scroll';

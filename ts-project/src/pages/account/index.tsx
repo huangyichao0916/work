@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import accountImg from '@/assets/imgs/account.png';
 import './account.styl';
-import RechargeItem from './rechargeItem';
+import RechargeItem from '../../components/account/rechargeItem';
 import classNames from 'classnames';
 
 import { connect } from 'react-redux';

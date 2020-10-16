@@ -1,5 +1,5 @@
 import React,{FC} from 'react';
-import {DiscoverTotalChoicenessItemInt} from '..'
+import {DiscoverTotalChoicenessItemInt} from '@/pages/discover/discoverTotalChoiceness'
 import './discoverTotalChoicenessItem.styl'
 
 interface Props extends DiscoverTotalChoicenessItemInt{};

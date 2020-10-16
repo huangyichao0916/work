@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import './rechargeRecord.styl';
+import { RechargeRecordItem } from '@/components/rechargeRecord/rechargeRecordItem';
+
 import { connect } from 'react-redux';
-import { RechargeRecordItem } from './rechargeRecordItem';
+
 import { RechargeRecordItemInt } from '@/store/types'
 
 interface Props {

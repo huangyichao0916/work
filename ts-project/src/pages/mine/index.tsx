@@ -2,20 +2,25 @@ import React, { Component, Dispatch } from 'react';
 import './mine.styl'
 import avatar from '@/assets/imgs/avatar.JPG';
 import imgg from '@/assets/imgs/account.png';
-import MineItem from './mineItem'
+import MineItem from '@/components/mine/mineItem'
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css";
 import classNames from 'classnames';
-import { connect } from 'react-redux'
 import BScroll from 'better-scroll';
-import {MinePageDataItem} from '../../store/types'
-import { setIsDotedToFalseActionCreator, SetIsDotedToFalseAction } from '../../store/action';
+
+import { connect } from 'react-redux'
+
+import { MinePageDataItem } from '@/store/types'
+import {
+    setIsDotedToFalseActionCreator,
+    SetIsDotedToFalseAction
+} from '@/store/action';
 
 
-interface Props{
-    items:Array<MinePageDataItem>;
-    balance:number;
-    handleOnClick:(id:number, isDotShow:boolean) => void;
+interface Props {
+    items: Array<MinePageDataItem>;
+    balance: number;
+    handleOnClick: (id: number, isDotShow: boolean) => void;
 }
 class Mine extends Component<Props> {
     componentDidMount() {
@@ -33,11 +38,11 @@ class Mine extends Component<Props> {
     }
     render() {
         let { items, handleOnClick, balance } = this.props;
-        const myItems:Array<JSX.Element> = items.map((i:MinePageDataItem) => {
+        const myItems: Array<JSX.Element> = items.map((i: MinePageDataItem) => {
 
             const { id, title, isBalanceShow, linkTo, isDotShow, icon } = i;
 
-            const myClassName:string = classNames({
+            const myClassName: string = classNames({
                 'mine-item-wrapper': true,
                 'hidden': isBalanceShow === 1 ? false : true,
             })
@@ -87,7 +92,7 @@ class Mine extends Component<Props> {
                                 </div>
                             </div>
                         </div>
-                        
+
                         {myItems.length > 0 && myItems}
                     </div>
                 </div>
@@ -102,9 +107,9 @@ const mapStateToProps = state => {
         balance: state.getIn(['account']),
     }
 }
-const mapDispatchToProps = (dispatch:Dispatch<SetIsDotedToFalseAction>) => {
+const mapDispatchToProps = (dispatch: Dispatch<SetIsDotedToFalseAction>) => {
     return {
-        handleOnClick: (id:number, isDotShow:boolean) => {
+        handleOnClick: (id: number, isDotShow: boolean) => {
             // console.log('id为' + id)
             if (!isDotShow) {
                 console.log('因为本身不带有Dot，所以阻断了dispatch请求')

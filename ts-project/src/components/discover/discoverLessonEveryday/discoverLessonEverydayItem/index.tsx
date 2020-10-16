@@ -1,6 +1,6 @@
 import React,{FC} from 'react';
 import './discoverLessonEverydayItem.styl';
-import {DiscoverLessonEverydayItemInt} from '..'
+import {DiscoverLessonEverydayItemInt} from '@/pages/discover/discoverLessonEveryday'
 
 interface Props extends DiscoverLessonEverydayItemInt{};
 

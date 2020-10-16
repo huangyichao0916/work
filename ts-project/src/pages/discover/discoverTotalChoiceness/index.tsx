@@ -3,7 +3,7 @@ import axios from 'axios';
 import '@/mock/discover-total-choiceness-data';
 import { Link } from 'react-router-dom';
 
-import DiscoverTotalChoicenessItem from './discoverTotalChoicenessItem'
+import DiscoverTotalChoicenessItem from '@/components/discover/discoverTotalChoiceness/discoverTotalChoicenessItem'
 
 export interface DiscoverTotalChoicenessItemInt {
     id: number;
