@@ -2,7 +2,7 @@ import React, { Component, Dispatch } from 'react';
 import './mine.styl'
 import avatar from '@/assets/imgs/avatar.JPG';
 import imgg from '@/assets/imgs/account.png';
-import MineItem from './mineItem/MineItem'
+import MineItem from './mineItem'
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css";
 import classNames from 'classnames';

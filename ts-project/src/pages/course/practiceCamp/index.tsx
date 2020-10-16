@@ -1,5 +1,5 @@
 import React, { useEffect, useState, FC } from 'react';
-import PracticeCampItem from './practiceCampItem/PracticeCampItem'
+import PracticeCampItem from './practiceCampItem'
 import './practiceCamp.styl'
 import axios from 'axios';
 import BScroll from 'better-scroll';
@@ -30,7 +30,6 @@ const PracticeCamp: FC<Props> = props => {
     let { practiceCampDataSource, loadPracticeCampData, onHandleJoinCamp } = props;
     useEffect(() => {
         if (practiceCampDataSource.length > 0) {
-            // console.log('因为practiceCampDataSource中有数据，所以阻断了axios请求');
             return;
         }
         axios.get('mock/course/practiceCamp')

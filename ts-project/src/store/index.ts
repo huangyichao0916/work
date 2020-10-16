@@ -5,8 +5,6 @@ import {ActionType} from './action'
 import reducers from './reducers';
 import thunk from 'redux-thunk';
 
-// import axios from 'axios';
-// import { addDataToMinePageActionCreator } from '@/store/action';
 
 const rootReducer:Reducer<RootState,ActionType> = combineReducers<RootState,ActionType>(reducers);
 

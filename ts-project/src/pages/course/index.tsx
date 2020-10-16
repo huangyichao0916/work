@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './course.styl';
-import Header from './header/Header';
+import Header from './header';
 import {renderRoutes} from 'react-router-config';
 
 interface Route{

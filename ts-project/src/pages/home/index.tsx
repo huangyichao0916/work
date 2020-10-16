@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import {renderRoutes} from 'react-router-config';
-import Footer from '../../pages/discover/footer/Footer';
+import Footer from '../discover/footer';
 
 interface Routes{
     routes:Array<any>;

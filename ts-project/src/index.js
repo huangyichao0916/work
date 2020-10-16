@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
-import './index.styl';
-import {Provider} from 'react-redux';
-import store from '@/store/store';
-import axios from 'axios';
-import { addDataToMinePageActionCreator } from '@/store/action';
-
 import {BrowserRouter} from 'react-router-dom';
 import {renderRoutes} from 'react-router-config';
+import * as serviceWorker from './serviceWorker';
+import './index.styl';
+import axios from 'axios';
+
+import store from '@/store';
+import { addDataToMinePageActionCreator } from '@/store/action';
+
 import routes from '@/routes';
+
+import {Provider} from 'react-redux';
+
 
 axios.get('/mine/mineItem.json')
   .then(res => res.data.items)

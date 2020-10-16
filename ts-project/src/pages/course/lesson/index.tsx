@@ -4,8 +4,8 @@ import axios from 'axios';
 import '@/mock/course-lesson-data';
 
 import StudyPath from '@/components/course/lesson/studyPath/StudyPath';
-import CourseDirection from './courseDirection/CourseDirection';
-import AllCourses from './allCourses/AllCourses';
+import CourseDirection from './courseDirection';
+import AllCourses from './allCourses';
 import BScroll from '@/baseUI/MyBScroll'
 
 import {
