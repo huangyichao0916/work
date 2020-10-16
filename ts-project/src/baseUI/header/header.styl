@@ -9,19 +9,26 @@
     display flex
     justify-content: space-between
     align-items: center
+    .leftTitle,.rightTitle
+        font-size 0.53rem
+        a
+            text-decoration none
+            color: black
+    .nothing-left,.nothing-right
+        opacity 0
     .icon
         font-size 28px
         color #999999
-        &.no-goback
-            opacity 0
-    .title
+    .middleTitle
         text-align center
-        font-size 18px
+        font-size 0.53rem
         position absolute
         left 50%
         transform: translateX(-50%)
-    .rightTitle
-        color #888888
-        font-size .426667rem
-        &.no-right-title
-            display none
+    .middleTitle.no-middle-title
+        opacity 0
+    // .rightTitle
+    //     color #888888
+    //     font-size .426667rem
+    //     &.no-right-title
+    //         display none

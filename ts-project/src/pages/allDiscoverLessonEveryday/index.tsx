@@ -24,7 +24,7 @@ class AllDiscoverLessonEveryday extends Component<any, State>{
             <div className="allDiscoverLessonEveryday">
                 <Header 
                     isGoBackNeeded={true}
-                    title={"每日一课"}
+                    middleTitle={"每日一课"}
                 />
                 <AllDiscoverLessonEverydayItem
                     id={3}
