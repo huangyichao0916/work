@@ -1,16 +1,17 @@
-import React,{FC} from 'react';
+import React, { FC } from 'react';
 import './allCoursesItem.styl';
+import MyButton from '@/baseUI/myButton'
 
 import {
     StudyItemInt,
     CourseLessonItem
 } from '@/store/types'
 
-interface Props extends CourseLessonItem{
-    index:number
-    handleBuyLesson:(price: number, index: number, payload:StudyItemInt) => void;
+interface Props extends CourseLessonItem {
+    index: number
+    handleBuyLesson: (price: number, index: number, payload: StudyItemInt) => void;
 }
-const AllCoursesItem:FC<Props> = props => {
+const AllCoursesItem: FC<Props> = props => {
     const {
         title,
         authorName,
@@ -25,13 +26,35 @@ const AllCoursesItem:FC<Props> = props => {
         index,
         handleBuyLesson,
     } = props;
+
+    let myButton: JSX.Element = haveLearned ?
+        (
+            <MyButton
+                clickable={false}
+            >
+                已购买
+            </MyButton>
+        ) :
+        (
+            <MyButton
+                myOnClick={() => {
+                    handleBuyLesson(priceSale, index, {
+                        title,
+                        authorName,
+                        authorDesc,
+                    });
+                }}
+                clickable={true}
+            >
+                购买
+            </MyButton>
+        )
+
     return (
         <div className="practiceCamp-item2">
-            {/* <div className="practiceCamp-item-img">
-                <LazyLoad>
-                    <img src={avatar} alt="图片不见了" />
-                </LazyLoad>
-            </div> */}
+            {
+                myButton
+            }
             <div className="practiceCamp-item-img">
                 <img src={avatar} alt="图片不见了" />
             </div>
@@ -46,14 +69,6 @@ const AllCoursesItem:FC<Props> = props => {
                     <div className="practiceCamp-new-first-indent">新人首单</div>
                     <div className="practiceCamp-item-price">￥{priceSale}</div>
                     <div className="practiceCamp-item-oldprice">￥{priceMarket}</div>
-                    {!haveLearned && <button onClick={() => {
-                        handleBuyLesson(priceSale,index,{
-                            title,
-                            authorName,
-                            authorDesc,
-                        });
-                    }}>购买</button>}
-                    {haveLearned && <button className="hasBeenPurchased">已购买</button>}
                 </div>
             </div>
         </div>
