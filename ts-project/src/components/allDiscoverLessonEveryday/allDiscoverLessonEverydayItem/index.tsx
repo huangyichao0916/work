@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { DiscoverLessonEverydayItemInt } from '@/pages/discover/discoverLessonEveryday';
 import './allDiscoverLessonEverydayItem.styl';
 import MyButton from '@/baseUI/myButton';
+import LazyLoad from 'react-lazyload';
 
 interface Props extends DiscoverLessonEverydayItemInt{
 
@@ -13,7 +14,9 @@ class AllDiscoverLessonEverydayItem extends Component<Props,any>{
         return(
             <div className="allDiscoverLessonEverydayItem">
                 <div className="left">
-                    <img src={avatar} alt=""/>
+                    <LazyLoad>
+                        <img src={avatar} alt=""/>
+                    </LazyLoad>
                 </div>
                 <div className="right">
                     <div className="title">

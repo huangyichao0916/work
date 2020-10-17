@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { DiscoverTotalChoicenessItemInt } from '@/pages/discover/discoverTotalChoiceness';
 import MyButton from '@/baseUI/myButton';
 import './allDiscoverTotalChoicenessItem.styl';
+import LazyLoad from 'react-lazyload';
 
 interface Props extends DiscoverTotalChoicenessItemInt{
 
@@ -13,7 +14,9 @@ class AllDiscoverTotalChoicenessItem extends Component<Props,any>{
         return(
             <div className="allDiscoverTotalChoicenessItem">
                 <div className="left">
-                    <img src={avatar} alt=""/>
+                    <LazyLoad>
+                        <img src={avatar} alt=""/>
+                    </LazyLoad>
                 </div>
                 <div className="right">
                     <div className="title">
