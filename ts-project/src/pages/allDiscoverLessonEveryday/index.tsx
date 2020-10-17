@@ -20,14 +20,13 @@ class AllDiscoverLessonEveryday extends Component<any, State>{
             }))
     }
     render() {
+        const {data} = this.state;
+
         return (
             <div className="allDiscoverLessonEveryday">
                 <Header  isGoBackNeeded={true}  middleTitle={"每日一课"}/>
                 <AllDiscoverLessonEverydayItem
-                    id={3}
-                    title={'asd'}
-                    subtitle={'asd'}
-                    avatar={'asd'}
+                    {...data[0]}
 
                     key={2}
                 />
