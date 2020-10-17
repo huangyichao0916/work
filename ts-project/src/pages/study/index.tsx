@@ -1,26 +1,26 @@
 import React, { FC } from 'react';
 import './study.styl'
 import StudyItem from '@/components/study/studyItem'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '@/baseUI/header'
 
 import { connect } from 'react-redux'
 
-import {StudyItemInt} from '@/store/types'
+import { StudyItemInt } from '@/store/types'
 
-interface Props{
-    studyItems:Array<StudyItemInt>
+interface Props {
+    studyItems: Array<StudyItemInt>
 }
-const Study:FC<Props> = props => {
-    const studyItemList:Array<JSX.Element> = props.studyItems.map((item:StudyItemInt, i:number) => {
+const Study: FC<Props> = props => {
+    const studyItemList: Array<JSX.Element> = props.studyItems.map((item: StudyItemInt, i: number) => {
         return (
-            <StudyItem {...item} key={i}/>
+            <StudyItem {...item} key={i} />
         )
     })
-    const len:boolean = studyItemList.length > 0 ? true : false;
+    const len: boolean = studyItemList.length > 0;
     return (
         <div className="study">
-            <Header leftTitle={"我的学习"} rightTitle={"&#xe615;"}/>
+            <Header leftTitle={"我的学习"} rightTitle={"&#xe615;"} />
             <div className="study-time">
                 本周时长<strong>0</strong>小时<strong>0</strong>分钟 <span className="icon iconfont">&#xe613;</span>
             </div>

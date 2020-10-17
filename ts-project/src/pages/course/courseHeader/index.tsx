@@ -1,8 +1,8 @@
-import React from 'react';
-import './header.styl';
+import React, { FC } from 'react';
+import './courseHeader.styl';
 import {NavLink} from 'react-router-dom'
 
-const Header = () => {
+const CourseHeader:FC<any> = () => {
     return (
         <div className="header">
             <div className="headerItem">
@@ -18,4 +18,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default React.memo(CourseHeader);

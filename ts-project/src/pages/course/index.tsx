@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './course.styl';
-import Header from './header';
+import CourseHeader from './courseHeader';
 import {renderRoutes} from 'react-router-config';
 
 interface Route{
@@ -18,7 +18,7 @@ class Course extends Component<Props> {
     render() { 
         return ( 
             <div className="course">
-                <Header />
+                <CourseHeader />
                 {renderRoutes(this.props.route.routes)}
             </div>
         );
