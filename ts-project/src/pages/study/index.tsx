@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import './study.styl'
-import { Header } from './studyHeader.style'
 import StudyItem from '@/components/study/studyItem'
 import {Link} from 'react-router-dom';
+import Header from '@/baseUI/header'
 
 import { connect } from 'react-redux'
 
@@ -20,10 +20,7 @@ const Study:FC<Props> = props => {
     const len:boolean = studyItemList.length > 0 ? true : false;
     return (
         <div className="study">
-            <Header>
-                <span className="study-header-title">我的学习</span>
-                <span className="icon iconfont">&#xe615;</span>
-            </Header>
+            <Header leftTitle={"我的学习"} rightTitle={"&#xe615;"}/>
             <div className="study-time">
                 本周时长<strong>0</strong>小时<strong>0</strong>分钟 <span className="icon iconfont">&#xe613;</span>
             </div>

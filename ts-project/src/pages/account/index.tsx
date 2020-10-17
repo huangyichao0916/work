@@ -4,6 +4,7 @@ import accountImg from '@/assets/imgs/account.png';
 import './account.styl';
 import RechargeItem from '../../components/account/rechargeItem';
 import classNames from 'classnames';
+import Header from '@/baseUI/header'
 
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -51,11 +52,7 @@ class Account extends Component<Props, State> {
         return (
             <div className="account-wrapper">
                 <div className="account-top">
-                    <div className="account-header">
-                        <span className="icon iconfont" onClick={this.goBack}>&#xe647;</span>
-                        <span className="account-title">账户</span>
-                        <span className="exchange">兑换入口</span>
-                    </div>
+                    <Header isGoBackNeeded={true} middleTitle={"账户"} rightTitle={"兑换入口"} rightTitleURL={"/entrance"}/>
                     <div className="account-balance-wrapper">
                         <div className="account-balance">￥{this.props.balance.toFixed(2)}</div>
                         <Link to="/rechargeRecord">

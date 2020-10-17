@@ -7,6 +7,7 @@ import Swiper from "swiper"
 import "swiper/css/swiper.min.css";
 import classNames from 'classnames';
 import BScroll from 'better-scroll';
+import Header from '@/baseUI/header'
 
 import { connect } from 'react-redux'
 
@@ -63,10 +64,7 @@ class Mine extends Component<Props> {
         })
         return (
             <div className="mine">
-                <div className="mine-header-wrapper">
-                    <span>我的</span>
-                    <span className="icon iconfont">&#xe665;</span>
-                </div>
+                <Header middleTitle={"我的"} rightTitle={"&#xe665;"}/>
                 <div className="bscroll-wrapper" >
                     <div className="content">
                         <div className="mine-info-wrapper">

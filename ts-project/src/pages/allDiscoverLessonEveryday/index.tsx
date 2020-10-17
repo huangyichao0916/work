@@ -22,10 +22,7 @@ class AllDiscoverLessonEveryday extends Component<any, State>{
     render() {
         return (
             <div className="allDiscoverLessonEveryday">
-                <Header 
-                    isGoBackNeeded={true}
-                    middleTitle={"每日一课"}
-                />
+                <Header  isGoBackNeeded={true}  middleTitle={"每日一课"}/>
                 <AllDiscoverLessonEverydayItem
                     id={3}
                     title={'asd'}

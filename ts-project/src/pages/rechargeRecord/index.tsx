@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import './rechargeRecord.styl';
 import { RechargeRecordItem } from '@/components/rechargeRecord/rechargeRecordItem';
+import Header from '@/baseUI/header'
 
 import { connect } from 'react-redux';
 
@@ -28,11 +29,7 @@ const RechargeRecord: FC<Props> = props => {
     })
     return (
         <div className="rechargeRecord">
-            <div className="rechargeRecord-header">
-                <span className="icon iconfont" onClick={() => window.history.back()}>&#xe647;</span>
-                <span className="rechargeRecord-title">充值记录</span>
-                <span className="exchange">兑换入口</span>
-            </div>
+            <Header isGoBackNeeded={true} middleTitle={"充值记录"}/>
             <div className="rechargeRecord-item-wrapper">
                 {items}
             </div>
