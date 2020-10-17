@@ -3,7 +3,8 @@ import { DiscoverTotalChoicenessItemInt } from '@/pages/discover/discoverTotalCh
 import './allDiscoverTotalChoiceness.styl';
 import axios from 'axios';
 import '@/mock/discover-total-choiceness-data';
-import Header from '@/baseUI/header'
+import Header from '@/baseUI/header';
+import AllDiscoverTotalChoicenessItem from '@/components/allDiscoverTotalChoiceness/allDiscoverTotalChoicenessItem'
 
 interface State {
     data: Array<DiscoverTotalChoicenessItemInt>
@@ -19,10 +20,23 @@ class AllDiscoverTotalChoiceness extends Component<any, State>{
             }))
     }
     render() {
+        const {data} = this.state;
+
+        const allData:Array<JSX.Element> = data.map((item:DiscoverTotalChoicenessItemInt) => {
+            return(
+                <AllDiscoverTotalChoicenessItem 
+                    {...item}
+                    key={item.id}
+                />
+            )
+        })
+
         return (
             <div className="allDiscoverTotalChoiceness">
                 <Header  isGoBackNeeded={true}  middleTitle={"精选合辑"}/>
-                allchoice
+                {
+                    allData
+                }
             </div>
         )
     }

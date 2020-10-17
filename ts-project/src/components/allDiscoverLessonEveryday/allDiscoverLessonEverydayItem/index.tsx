@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { DiscoverLessonEverydayItemInt } from '@/pages/discover/discoverLessonEveryday';
 import './allDiscoverLessonEverydayItem.styl';
+import MyButton from '@/baseUI/myButton';
 
 interface Props extends DiscoverLessonEverydayItemInt{
 
@@ -22,6 +23,7 @@ class AllDiscoverLessonEverydayItem extends Component<Props,any>{
                         {subtitle}
                     </div>
                 </div>
+                <MyButton clickable={true}>试看</MyButton>
             </div>
         )
     }
