@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
 import './practiceCampItem.styl';
 
-import { 
+import MyButton from '@/baseUI/myButton';
+
+import {
     StudyItemInt,
     PracticeCampItemInt,
- } from '@/store/types';
+} from '@/store/types';
 
 interface Props extends PracticeCampItemInt {
     index: number;
@@ -25,8 +27,34 @@ const PracticeCampItem: FC<Props> = props => {
         onHandleJoinCamp,
     } = props;
 
+    let myButton: JSX.Element = haveLearned ?
+        (
+            <MyButton
+                clickable={false}
+            >
+                已报名
+            </MyButton>
+        ) :
+        (
+            <MyButton
+                myOnClick={() => {
+                    onHandleJoinCamp(priceSale, index, {
+                        title,
+                        authorName,
+                        authorDesc,
+                    });
+                }}
+                clickable={true}
+            >
+                立即报名
+            </MyButton>
+        )
+
     return (
         <div className="practiceCamp-item">
+            {
+                myButton
+            }
             <div className="practiceCamp-item-img">
                 <img src={avatar} alt="图片不见了" />
             </div>
@@ -40,20 +68,6 @@ const PracticeCampItem: FC<Props> = props => {
                 <div className="price-and-join">
                     <div className="practiceCamp-item-price">￥{priceSale}</div>
                     <div className="practiceCamp-item-oldprice">￥{priceMarket}</div>
-                    {!haveLearned &&
-                        <button
-                            onClick={() => {
-                                onHandleJoinCamp(priceSale, index, {
-                                    title,
-                                    authorName,
-                                    authorDesc,
-                                });
-                            }}
-                        >
-                            立即报名
-                        </button>
-                    }
-                    {haveLearned && <button className="hasBeenPurchased">已报名</button>}
                 </div>
             </div>
         </div>
