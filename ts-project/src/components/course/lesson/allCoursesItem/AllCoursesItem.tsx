@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import './allCoursesItem.styl';
-import MyButton from '@/baseUI/myButton'
+import MyButton from '@/baseUI/myButton';
+import LazyLoad from 'react-lazyload';
 
 import {
     StudyItemInt,

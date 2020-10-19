@@ -65,7 +65,7 @@ const PracticeCamp: FC<Props> = props => {
         <div className="practiceCamp-wrapper">
             <div className="content">
                 <div className="image">
-                    <img src="/imgs/discoverSwiper05.jpg" alt="" />
+                    <img src="https://static001.geekbang.org/resource/image/d0/02/d008de059acbb6c623fc5332bac2e902.jpg" alt="" />
                 </div>
                 <div className="practiceCampCamp-item-wrapper">
                     <div className="practiceCamp-title">
