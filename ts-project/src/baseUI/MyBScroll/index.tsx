@@ -1,19 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, FC } from "react"
 import BScroll from "better-scroll"
 import styled from 'styled-components';
-
-const debounce: Function = (func: Function, delay: number):Function => {
-  let timer: null | number = null;
-  return function (...args: any[]) {
-    if (timer) {
-      clearTimeout(timer);
-    }
-    timer = setTimeout(() => {
-      func.apply(this, args);
-      clearTimeout(timer);
-    }, delay);
-  };
-};
+import debounce from '@/API/debounce'
 
 // const LoadingComp:FC<any> = (props) => {
 //   return (

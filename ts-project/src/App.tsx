@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import './App.styl';
 import './assets/font/iconfont.css'
 import { renderRoutes } from 'react-router-config';
+import WindowAlert from '@/baseUI/windowAlert';
 
-function App(props) {
-  // console.log(props.route.routes);
-  return ( 
+
+const App: FC<any> = props => {
+  // const [isAlertShow, setIsAlertShow] = useState<boolean>(true);
+  // useEffect(() => {
+  //   const windowWidth: number = document.documentElement.clientWidth;
+  //   if (windowWidth < 780) {
+  //     setIsAlertShow(false)
+  //   }
+  // }, [])
+
+  // console.log(window.screen.availWidth);
+  return (
     <div className="app">
+      <WindowAlert content={"请用移动端观看"} />
+
       {renderRoutes(props.route.routes)}
       {/* <Footer /> */}
     </div>
