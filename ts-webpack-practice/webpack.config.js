@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
     mode: 'development',
@@ -28,11 +29,13 @@ const config = {
             },
             {
                 test: /\.css$/,
-                use:['style-loader','css-loader'],
+                // use:['style-loader','css-loader'],
+                use:[MiniCssExtractPlugin.loader,'css-loader']
             },
             {
                 test: /\.styl(us)?$/,
-                use:['style-loader','css-loader','stylus-loader'],
+                use:[MiniCssExtractPlugin.loader,'css-loader','stylus-loader'],
+                // use:['style-loader','css-loader','stylus-loader'],
             },
             {
                 test: /\.tsx?$/,
@@ -45,6 +48,9 @@ const config = {
         new HtmlWebpackPlugin({
             template: './public/index.html',
             filename: 'index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename:'all.css'
         })
     ]
 }
